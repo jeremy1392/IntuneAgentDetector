@@ -1,0 +1,9 @@
+/bin/
+/dist/
+/out/
+*.exe
+*.test
+*.out
+*.intunewin
+last-scan.json
+/rsrc_windows_*.syso

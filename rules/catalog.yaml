@@ -1,0 +1,771 @@
+# detectorAgent detection catalog.
+#
+# This file is embedded in the binary. Pass `--rules <file>` to test a modified
+# copy without rebuilding. Entries marked "unverified" still need to be
+# confirmed against a real installation or vendor documentation.
+#
+# Path patterns accept these placeholders, expanded per user profile:
+#   %USERPROFILE% %APPDATA% %LOCALAPPDATA%
+# and these machine-wide ones:
+#   %PROGRAMFILES% %PROGRAMFILES(X86)% %PROGRAMDATA% %SYSTEMROOT%
+# Glob wildcards (* ? [..]) are allowed in path patterns.
+
+# Endpoints and identifiers were checked against vendor documentation and DNS
+# on 2026-11-08; the Anthropic address range and the Trae and Augment data
+# folders are still marked unverified.
+version: "2026.11.08"
+
+# The disclaimer is shown at every scan for as long as an agent matching the
+# trigger rules is detected; accepting it never silences the next scan.
+#
+# These are the default texts. Customize them, the company name, the logo, the
+# AI policy and the contact e-mail in branding\branding.yaml instead: that file
+# is read at run time, without rebuilding the executable.
+disclaimer:
+  version: 1
+  company: ""
+  logo: ""
+  title: "AI agent usage: mandatory notice"
+  heading: "An AI agent was detected on your computer."
+  text: |
+    An AI agent can read your files, run commands, and send data to external services. Its use is governed by the AI policy of {company}:
+    • Only use approved tools.
+    • Never share confidential, personal, or customer data with a tool that is not approved.
+    • You remain responsible for any action an agent takes on your computer.
+
+    This detection and your acceptance are logged by IT Security.
+  checkbox: "I have read and understood the AI acceptable use policy."
+  button: "I accept"
+  policy: "https://intranet.example.com/ai-policy"
+  policy_label: "Read the AI policy"
+  email: "security@example.com"
+  email_subject: "Question about the AI policy"
+  contact_text: "Questions? Contact {email}."
+  trigger_levels: [active, recent, installed]
+  min_confidence: medium
+
+# Tool ids, endpoint hosts or endpoint suffixes approved by the AI policy.
+# Examples: github-copilot, corp-xyz.openai.azure.com, .business.githubcopilot.com
+sanctioned: []
+
+generic:
+  # Children of an LLM-connected process that indicate an agent running tools.
+  shells: [cmd.exe, powershell.exe, pwsh.exe, bash.exe, sh.exe, wsl.exe, git.exe, python.exe, python3.exe, node.exe]
+  # Processes whose loaded modules and environment are inspected.
+  interpreters: [python.exe, python3.exe, pythonw.exe, py.exe, node.exe, bun.exe, deno.exe, pwsh.exe, powershell.exe, java.exe]
+  browsers: [chrome.exe, msedge.exe, brave.exe, firefox.exe, chromium.exe, chrome-headless-shell.exe, opera.exe, vivaldi.exe]
+  # Plain substrings, matched case-insensitively in browser command lines.
+  browser_automation_flags: ["--remote-debugging-port", "--remote-debugging-pipe", "--enable-automation", "--headless", "ms-playwright", "puppeteer", "-juggler"]
+  mcp_cmdline:
+    - '(?i)@modelcontextprotocol[\\/]'
+    - '(?i)\bmcp-server-[a-z0-9-]+'
+    - '(?i)\bmcp-remote\b'
+    - '(?i)@playwright[\\/]mcp'
+    - '(?i)chrome-devtools-mcp'
+    - '(?i)\buvx(\.exe)?"?\s+mcp-[a-z0-9-]+'
+  inference_modules:
+    - '(?i)^ggml[a-z0-9_-]*\.dll$'
+    - '(?i)^llama[a-z0-9_-]*\.dll$'
+    - '(?i)^onnxruntime-genai\.dll$'
+    - '(?i)^mlc_llm[a-z0-9_-]*\.dll$'
+  tokenizer_modules:
+    - '(?i)^_tiktoken[^\\]*\.pyd$'
+    - '(?i)^tokenizers[^\\]*\.pyd$'
+  base_url_vars:
+    - '(?i)^(OPENAI|ANTHROPIC|AZURE_OPENAI|GEMINI|GOOGLE_GEMINI|GOOGLE_GENAI|MISTRAL|GROQ|OPENROUTER|DEEPSEEK|XAI|TOGETHER|FIREWORKS|COHERE|PERPLEXITY|LITELLM|LLM|HF|HUGGINGFACE|AI_GATEWAY|CLAUDE|CODEX)_[A-Z0-9_]*(BASE_URL|API_BASE|API_URL|ENDPOINT)$'
+  api_key_vars:
+    - '(?i)^(OPENAI|ANTHROPIC|AZURE_OPENAI|GEMINI|GOOGLE_GENAI|GOOGLE_AI|MISTRAL|GROQ|OPENROUTER|DEEPSEEK|XAI|TOGETHER|FIREWORKS|COHERE|PERPLEXITY|HUGGINGFACE|HF|REPLICATE|CEREBRAS|POE|REQUESTY|PORTKEY|HELICONE|VOYAGE|AI_GATEWAY|MOONSHOT|DASHSCOPE|ZHIPU|SILICONFLOW)_(API_)?(KEY|TOKEN)$'
+    - '(?i)^CLAUDE_CODE_OAUTH_TOKEN$'
+  vscode_extension_dirs:
+    - '%USERPROFILE%\.vscode\extensions'
+    - '%USERPROFILE%\.vscode-insiders\extensions'
+    - '%USERPROFILE%\.vscode-oss\extensions'
+    - '%USERPROFILE%\.cursor\extensions'
+    - '%USERPROFILE%\.windsurf\extensions'
+    - '%USERPROFILE%\.kiro\extensions'
+    - '%USERPROFILE%\.trae\extensions'
+  jetbrains_plugin_dirs:
+    - '%APPDATA%\JetBrains\*\plugins'
+  browser_profile_dirs:
+    - '%LOCALAPPDATA%\Google\Chrome\User Data'
+    - '%LOCALAPPDATA%\Microsoft\Edge\User Data'
+    - '%LOCALAPPDATA%\BraveSoftware\Brave-Browser\User Data'
+    - '%LOCALAPPDATA%\Chromium\User Data'
+  npm_global_dirs:
+    - '%APPDATA%\npm\node_modules'
+    - '%PROGRAMFILES%\nodejs\node_modules'
+    - '%USERPROFILE%\.bun\install\global\node_modules'
+    - '%LOCALAPPDATA%\pnpm\global\*\node_modules'
+  pip_site_dirs:
+    - '%LOCALAPPDATA%\Programs\Python\Python*\Lib\site-packages'
+    - '%APPDATA%\Python\Python*\site-packages'
+    - '%PROGRAMFILES%\Python*\Lib\site-packages'
+    - '%LOCALAPPDATA%\Packages\PythonSoftwareFoundation.Python.*\LocalCache\local-packages\Python*\site-packages'
+    - '%USERPROFILE%\anaconda3\Lib\site-packages'
+    - '%USERPROFILE%\miniconda3\Lib\site-packages'
+  # Directories whose sub-directory names are tool or package names (pipx, uv tool).
+  pip_tool_dirs:
+    - '%USERPROFILE%\pipx\venvs'
+    - '%LOCALAPPDATA%\pipx\pipx\venvs'
+    - '%APPDATA%\uv\tools'
+
+tools:
+  # ---------------------------------------------------------------- CLI agents
+  - id: claude-code
+    name: Claude Code
+    vendor: Anthropic
+    category: cli-agent
+    process:
+      images: [claude.exe]
+      products: [Claude Code]
+      signers: [Anthropic]
+      paths:
+        - '(?i)\\anthropic\.claude-code-[^\\]+\\resources\\native-binary\\claude\.exe$'
+        - '(?i)\\\.local\\bin\\claude\.exe$'
+        - '(?i)\\@anthropic-ai\\claude-code\\'
+      cmdline:
+        - '(?i)[\\/]@anthropic-ai[\\/]claude-code[\\/]'
+    vscode_extensions: [anthropic.claude-code]
+    npm: ['@anthropic-ai/claude-code']
+    installed:
+      - '%USERPROFILE%\.local\bin\claude.exe'
+      - '%APPDATA%\npm\claude.cmd'
+    residue:
+      - '%USERPROFILE%\.claude'
+      - '%USERPROFILE%\.claude.json'
+      - '%LOCALAPPDATA%\claude-cli-nodejs'
+    history:
+      - '%USERPROFILE%\.claude\history.jsonl'
+      - '%USERPROFILE%\.claude\projects'
+    mcp_configs:
+      - '%USERPROFILE%\.claude.json'
+    env: [CLAUDE_CONFIG_DIR, CLAUDE_CODE_USE_BEDROCK, CLAUDE_CODE_USE_VERTEX]
+
+  - id: openai-codex
+    name: OpenAI Codex / ChatGPT app
+    vendor: OpenAI
+    category: cli-agent
+    process:
+      images: [codex.exe, codex-computer-use-swift.exe, codex-windows-sandbox-service.exe, codex-command-runner.exe]
+      products: [Codex]
+      signers: [OpenAI]
+      paths:
+        - '(?i)\\OpenAI\\Codex\\'
+        - '(?i)\\WindowsApps\\OpenAI\.Codex_[^\\]+_2p2nqsd0c76g0\\'
+        - '(?i)\\@openai\\codex\\'
+      cmdline:
+        - '(?i)[\\/]@openai[\\/]codex[\\/]'
+    packages:
+      - '^OpenAI\.Codex_2p2nqsd0c76g0$'        # the current "ChatGPT" Store app
+      - '^OpenAI\.CodexBeta_2p2nqsd0c76g0$'
+      - '^OpenAI\.CodexPrimaryRuntime\.[^_]+_3k8sg7r9htsxt$'
+    services: ['^CodexSandboxService']
+    vscode_extensions: [openai.chatgpt]
+    npm: ['@openai/codex']
+    installed:
+      - '%LOCALAPPDATA%\OpenAI\Codex\bin'
+    residue:
+      - '%USERPROFILE%\.codex'
+      - '%LOCALAPPDATA%\Packages\OpenAI.Codex_2p2nqsd0c76g0'
+    history:
+      - '%USERPROFILE%\.codex\sessions'
+      - '%USERPROFILE%\.codex\archived_sessions'
+      - '%USERPROFILE%\.codex\*.sqlite'
+    env: [CODEX_HOME]
+
+  - id: gemini-cli
+    name: Gemini CLI
+    vendor: Google
+    category: cli-agent
+    process:
+      cmdline: ['(?i)[\\/]@google[\\/]gemini-cli[\\/]']
+    npm: ['@google/gemini-cli']
+    residue: ['%USERPROFILE%\.gemini']
+    history: ['%USERPROFILE%\.gemini\tmp']
+    mcp_configs: ['%USERPROFILE%\.gemini\settings.json']
+
+  - id: github-copilot-cli
+    name: GitHub Copilot CLI
+    vendor: GitHub
+    category: cli-agent
+    process:
+      cmdline: ['(?i)[\\/]@github[\\/]copilot[\\/]']
+    npm: ['@github/copilot']
+    residue: ['%USERPROFILE%\.copilot']
+
+  - id: opencode
+    name: OpenCode
+    vendor: Anomaly Innovations
+    category: cli-agent
+    process:
+      images: [opencode.exe]
+      products: [OpenCode]
+      signers: [Anomaly Innovations]
+      paths:
+        - '(?i)\\@opencode-aidesktop\\'
+        - '(?i)\\opencode-ai\\'
+      cmdline: ['(?i)[\\/]opencode-ai[\\/]']
+    uninstall: ['(?i)^OpenCode\b']
+    npm: [opencode-ai]
+    installed: ['%LOCALAPPDATA%\Programs\@opencode-aidesktop\OpenCode.exe']
+    residue:
+      - '%USERPROFILE%\.config\opencode'
+      - '%USERPROFILE%\.local\share\opencode'
+    history: ['%USERPROFILE%\.local\share\opencode\storage']
+
+  - id: aider
+    name: Aider
+    vendor: Aider
+    category: cli-agent
+    process:
+      images: [aider.exe]
+      cmdline:
+        - '(?i)[\\/]Scripts[\\/]aider(\.exe)?\b'
+        - '(?i)\s-m\s+aider\b'
+    pip: [aider-chat, aider-install]
+    residue: ['%USERPROFILE%\.aider', '%USERPROFILE%\.aider.conf.yml']
+
+  - id: goose
+    name: Goose
+    vendor: Block
+    category: cli-agent
+    process:
+      images: [goose.exe]
+    residue: ['%APPDATA%\Block\goose']
+    env: [GOOSE_PATH_ROOT]
+
+  - id: open-interpreter
+    name: Open Interpreter
+    vendor: Open Interpreter
+    category: cli-agent
+    process:
+      cmdline: ['(?i)[\\/]Scripts[\\/]interpreter(\.exe)?\b']
+    pip: [open-interpreter]
+
+  # ------------------------------------------------------ desktop agents/apps
+  - id: claude-desktop
+    name: Claude Desktop (incl. Cowork)
+    vendor: Anthropic
+    category: desktop-agent
+    process:
+      paths:
+        - '(?i)\\WindowsApps\\Claude_[^\\]+_pzs8sxrjxfjjc\\'
+        - '(?i)\\AnthropicClaude\\'
+    packages: ['^Claude_pzs8sxrjxfjjc$']
+    services: ['^CoworkVMService$']
+    installed: ['%LOCALAPPDATA%\AnthropicClaude\claude.exe']
+    residue:
+      - '%APPDATA%\Claude'
+      - '%LOCALAPPDATA%\Claude-Data'
+      - '%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc'
+    history:
+      - '%LOCALAPPDATA%\Claude\logs'
+      - '%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Local\Claude'
+    mcp_configs:
+      - '%APPDATA%\Claude\claude_desktop_config.json'
+      - '%LOCALAPPDATA%\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json'
+
+  - id: chatgpt-desktop
+    name: ChatGPT Classic desktop
+    vendor: OpenAI
+    category: desktop-assistant
+    process:
+      products: [ChatGPT]
+      signers: [OpenAI]
+      paths: ['(?i)\\WindowsApps\\OpenAI\.ChatGPT-Desktop_']
+    packages: ['^OpenAI\.ChatGPT-Desktop_2p2nqsd0c76g0$']
+
+  # The consumer Microsoft Copilot app ships with Windows 11. Uncomment it only
+  # if the AI policy forbids it, otherwise every user would see the disclaimer.
+  # - id: microsoft-copilot-app
+  #   name: Microsoft Copilot app
+  #   vendor: Microsoft
+  #   category: desktop-assistant
+  #   packages: ['^Microsoft\.Copilot_8wekyb3d8bbwe$']
+
+  # ------------------------------------------------------------------- AI IDEs
+  - id: cursor
+    name: Cursor
+    vendor: Anysphere
+    category: ai-ide
+    process:
+      images: [cursor.exe, cursor-agent.exe]
+      products: [Cursor]
+      signers: [Anysphere]
+      paths:
+        - '(?i)\\Programs\\cursor\\Cursor\.exe$'
+        - '(?i)\\cursor-agent\\'                  # Cursor CLI (cursor-agent.* and agent.*)
+      cmdline: ['(?i)[\\/]cursor-agent[\\/]']
+    uninstall: ['(?i)^Cursor\b']
+    installed: ['%LOCALAPPDATA%\Programs\cursor\Cursor.exe', '%LOCALAPPDATA%\cursor-agent']
+    residue: ['%APPDATA%\Cursor', '%USERPROFILE%\.cursor']
+    history: ['%APPDATA%\Cursor\User\globalStorage\state.vscdb']
+    mcp_configs: ['%USERPROFILE%\.cursor\mcp.json']
+
+  - id: windsurf
+    name: Windsurf
+    vendor: Cognition
+    category: ai-ide
+    process:
+      images: [windsurf.exe]
+      products: [Windsurf, Devin Desktop]
+      paths: ['(?i)\\Programs\\Windsurf\\Windsurf\.exe$']
+    uninstall: ['(?i)^Windsurf\b', '(?i)^Devin Desktop\b']
+    vscode_extensions: [codeium.codeium, codeium.windsurf]
+    jetbrains_plugins: ['(?i)codeium']
+    installed: ['%LOCALAPPDATA%\Programs\Windsurf\Windsurf.exe']
+    residue: ['%APPDATA%\Windsurf', '%USERPROFILE%\.windsurf', '%USERPROFILE%\.codeium']
+    history: ['%APPDATA%\Windsurf\User\globalStorage\state.vscdb']
+    mcp_configs: ['%USERPROFILE%\.codeium\windsurf\mcp_config.json']
+
+  - id: kiro
+    name: Kiro
+    vendor: Amazon Web Services
+    category: ai-ide
+    process:
+      images: [kiro.exe]
+      products: [Kiro]
+      paths: ['(?i)\\Programs\\Kiro\\Kiro\.exe$']
+    uninstall: ['(?i)^Kiro\b']
+    installed: ['%LOCALAPPDATA%\Programs\Kiro\Kiro.exe']
+    residue: ['%APPDATA%\Kiro', '%USERPROFILE%\.kiro']
+    mcp_configs: ['%USERPROFILE%\.kiro\settings\mcp.json']
+
+  - id: trae
+    name: Trae
+    vendor: ByteDance
+    category: ai-ide
+    process:
+      images: [trae.exe, 'trae cn.exe']
+      products: [Trae, Trae CN]
+    uninstall: ['(?i)^Trae\b']
+    residue: ['%APPDATA%\Trae', '%APPDATA%\Trae CN', '%USERPROFILE%\.trae', '%USERPROFILE%\.trae-cn']   # unverified
+
+  # ------------------------------------------------------ IDE agents/assistants
+  - id: github-copilot
+    name: GitHub Copilot (IDE)
+    vendor: GitHub
+    category: ide-assistant
+    process:
+      images: [copilot-runtime.exe]
+      products: [GitHub Copilot]
+      signers: [GitHub]
+    vscode_extensions: [github.copilot, github.copilot-chat]
+    jetbrains_plugins: ['(?i)^github-copilot-intellij$']
+
+  - id: vscode-agent-mcp
+    name: VS Code agent mode (MCP servers configured)
+    vendor: Microsoft
+    category: ide-agent
+    mcp_configs:
+      - '%APPDATA%\Code\User\mcp.json'
+      - '%APPDATA%\Code - Insiders\User\mcp.json'
+
+  - id: cline
+    name: Cline
+    vendor: Cline
+    category: ide-agent
+    vscode_extensions: [saoudrizwan.claude-dev]
+
+  - id: roo-code
+    name: Roo Code
+    vendor: Roo Code
+    category: ide-agent
+    vscode_extensions: [rooveterinaryinc.roo-cline]
+
+  - id: kilo-code
+    name: Kilo Code
+    vendor: Kilo Code
+    category: ide-agent
+    vscode_extensions: [kilocode.kilo-code]
+
+  - id: continue
+    name: Continue
+    vendor: Continue
+    category: ide-agent
+    vscode_extensions: [continue.continue]
+    jetbrains_plugins: ['(?i)^continue']
+    residue: ['%USERPROFILE%\.continue']
+
+  - id: gemini-code-assist
+    name: Gemini Code Assist
+    vendor: Google
+    category: ide-assistant
+    vscode_extensions: [google.geminicodeassist]
+
+  - id: amazon-q
+    name: Amazon Q Developer
+    vendor: Amazon Web Services
+    category: ide-assistant
+    vscode_extensions: [amazonwebservices.amazon-q-vscode]
+    jetbrains_plugins: ['(?i)^plugin-amazonq$']
+
+  - id: augment
+    name: Augment Code
+    vendor: Augment
+    category: ide-agent
+    vscode_extensions: [augment.vscode-augment]
+    residue: ['%USERPROFILE%\.augment']   # unverified
+
+  - id: tabnine
+    name: Tabnine
+    vendor: Tabnine
+    category: ide-assistant
+    vscode_extensions: [tabnine.tabnine-vscode]
+    jetbrains_plugins: ['(?i)^tabnine']
+
+  - id: qodo
+    name: Qodo Gen
+    vendor: Qodo
+    category: ide-agent
+    vscode_extensions: [codium.codium]
+
+  - id: jetbrains-ai
+    name: JetBrains AI Assistant / Junie
+    vendor: JetBrains
+    category: ide-agent
+    jetbrains_plugins: ['(?i)^ml-llm$', '(?i)^ej$']   # AI Assistant, Junie
+
+  # -------------------------------------------------------- agentic browsers
+  - id: perplexity-comet
+    name: Perplexity Comet (agentic browser)
+    vendor: Perplexity
+    category: agentic-browser
+    process:
+      images: [comet.exe]
+      products: [Comet]
+      signers: [Perplexity]
+      paths: ['(?i)\\Perplexity\\Comet\\Application\\comet\.exe$']
+    uninstall: ['(?i)^Comet\b', '(?i)^Perplexity\b']
+    residue: ['%LOCALAPPDATA%\Perplexity']
+
+  - id: browser-ai-extension
+    name: AI browser extension
+    vendor: various
+    category: browser-extension
+    browser_extensions:
+      - '(?i)^claude\b'
+      - '(?i)\bchatgpt\b'
+      - '(?i)\bperplexity\b'
+      - '(?i)\bmonica\b'
+      - '(?i)\bsider\b'
+      - '(?i)\bharpa\b'
+      - '(?i)\bmaxai\b'
+      - '(?i)\bmerlin\b'
+      - '(?i)\bcopilot\b'
+      - '(?i)\bgemini\b'
+      - '(?i)\bbrowser[ -]?use\b'
+      - '(?i)\bai agent\b'
+
+  # --------------------------------------------------------- local LLM runtimes
+  - id: ollama
+    name: Ollama
+    vendor: Ollama
+    category: local-llm
+    process:
+      images: [ollama.exe, 'ollama app.exe']
+      paths: ['(?i)\\Programs\\Ollama\\']
+    uninstall: ['(?i)^Ollama\b']
+    installed: ['%LOCALAPPDATA%\Programs\Ollama\ollama.exe']
+    residue: ['%USERPROFILE%\.ollama', '%APPDATA%\ollama app.exe', '%LOCALAPPDATA%\Ollama']
+    models: ['%USERPROFILE%\.ollama\models\manifests\registry.ollama.ai\library\*']
+    ports: [11434]
+    env: [OLLAMA_HOST, OLLAMA_MODELS]
+
+  - id: lm-studio
+    name: LM Studio
+    vendor: Element Labs
+    category: local-llm
+    process:
+      images: ['lm studio.exe', lms.exe]
+      products: [LM Studio]
+      paths: ['(?i)\\Programs\\LM Studio\\']
+    uninstall: ['(?i)^LM Studio\b']
+    residue: ['%USERPROFILE%\.lmstudio', '%USERPROFILE%\.cache\lm-studio', '%APPDATA%\LM Studio']
+    models: ['%USERPROFILE%\.lmstudio\models\*\*', '%USERPROFILE%\.cache\lm-studio\models\*\*']
+    ports: [1234]
+
+  - id: jan
+    name: Jan
+    vendor: Menlo Research
+    category: local-llm
+    process:
+      images: [jan.exe]
+      products: [Jan]
+      paths: ['(?i)\\Programs\\jan\\']
+    uninstall: ['(?i)^Jan\b']
+    residue: ['%APPDATA%\Jan', '%USERPROFILE%\jan']
+    ports: [1337]
+
+  - id: gpt4all
+    name: GPT4All
+    vendor: Nomic AI
+    category: local-llm
+    process:
+      paths: ['(?i)\\gpt4all\\bin\\chat\.exe$']
+    uninstall: ['(?i)^GPT4All\b']
+    residue: ['%LOCALAPPDATA%\nomic.ai', '%APPDATA%\nomic.ai']
+    ports: [4891]
+
+  - id: anythingllm
+    name: AnythingLLM
+    vendor: Mintplex Labs
+    category: local-llm
+    process:
+      images: [anythingllm.exe]
+      products: [AnythingLLM]
+    uninstall: ['(?i)^AnythingLLM\b']
+    residue: ['%APPDATA%\anythingllm-desktop']
+    ports: [3001]
+
+  - id: llama-cpp
+    name: llama.cpp / llamafile
+    vendor: open source
+    category: local-llm
+    process:
+      images: [llama-server.exe, llama-cli.exe, llama-run.exe, llamafile.exe, koboldcpp.exe]
+    ports: [5001]
+
+  - id: huggingface-models
+    name: Hugging Face local models
+    vendor: Hugging Face
+    category: local-llm
+    confidence: low
+    models: ['%USERPROFILE%\.cache\huggingface\hub\models--*']
+
+  # ------------------------------------------------- gateways and frameworks
+  - id: litellm
+    name: LiteLLM proxy
+    vendor: BerriAI
+    category: gateway
+    process:
+      cmdline: ['(?i)[\\/]Scripts[\\/]litellm(\.exe)?\b', '(?i)\s-m\s+litellm\b']
+    pip: [litellm]
+    ports: [4000]
+
+  - id: browser-use
+    name: Browser Use
+    vendor: Browser Use
+    category: agent-framework
+    confidence: low
+    pip: [browser-use]
+
+  - id: agent-frameworks
+    name: AI agent framework (Python)
+    vendor: various
+    category: agent-framework
+    confidence: low
+    pip: [crewai, autogen-agentchat, pyautogen, openai-agents, claude-agent-sdk, smolagents, langgraph, pydantic-ai, agno]
+
+  - id: agent-sdks-node
+    name: AI agent SDK (Node.js, global)
+    vendor: various
+    category: agent-framework
+    confidence: low
+    npm: ['@anthropic-ai/claude-agent-sdk', '@openai/agents']
+
+# ------------------------------------------------------------------ endpoints
+# category: model-provider | aggregator | inference-platform | gateway |
+#           dev-tool | web-assistant | agent-infra | model-download | relay
+# shared: the domain also serves non-AI traffic; evidence stays low confidence.
+endpoints:
+  # A. Model providers
+  - { host: api.openai.com, provider: OpenAI API, category: model-provider }
+  - { host: auth.openai.com, provider: OpenAI sign-in, category: model-provider }
+  - { host: chatgpt.com, provider: OpenAI ChatGPT / Codex backend, category: model-provider }
+  - { host: chat.openai.com, provider: OpenAI ChatGPT, category: web-assistant }
+  - { host: api.anthropic.com, provider: Anthropic API, category: model-provider }
+  - { host: console.anthropic.com, provider: Anthropic Console, category: model-provider }
+  - { host: platform.claude.com, provider: Anthropic Console, category: model-provider }
+  - { host: statsig.anthropic.com, provider: Anthropic telemetry, category: model-provider }
+  - { host: claude.ai, provider: Claude.ai, category: web-assistant }
+  - { cidr: 160.79.104.0/23, provider: Anthropic API (dedicated range), category: model-provider, unverified: true }
+  - { host: generativelanguage.googleapis.com, provider: Google Gemini API, category: model-provider }
+  - { host: cloudcode-pa.googleapis.com, provider: Google Gemini Code Assist API, category: model-provider }
+  - { host: aiplatform.googleapis.com, provider: Google Vertex AI, category: model-provider, shared: true }
+  - { pattern: '^[a-z0-9-]+-aiplatform\.googleapis\.com$', provider: Google Vertex AI (regional), category: model-provider, shared: true }
+  - { suffix: .openai.azure.com, provider: Azure OpenAI, category: model-provider }
+  - { suffix: .services.ai.azure.com, provider: Azure AI Foundry, category: model-provider }
+  - { suffix: .cognitiveservices.azure.com, provider: Azure AI services, category: model-provider, shared: true }
+  - { host: models.github.ai, provider: GitHub Models, category: model-provider }
+  - { host: models.inference.ai.azure.com, provider: GitHub Models (legacy), category: model-provider }
+  - { pattern: '^bedrock-(agent-)?runtime(-fips)?\.[a-z0-9-]+\.amazonaws\.com$', provider: AWS Bedrock, category: model-provider }
+  - { host: api.mistral.ai, provider: Mistral AI API, category: model-provider }
+  - { host: codestral.mistral.ai, provider: Mistral Codestral API, category: model-provider }
+  - { host: api.x.ai, provider: xAI API, category: model-provider }
+  - { host: api.llama.com, provider: Meta Llama API, category: model-provider }
+  - { host: api.cohere.com, provider: Cohere API, category: model-provider }
+  - { host: api.cohere.ai, provider: Cohere API, category: model-provider }
+  - { host: api.ai21.com, provider: AI21 API, category: model-provider }
+  - { host: api.perplexity.ai, provider: Perplexity API, category: model-provider }
+  - { host: api.deepseek.com, provider: DeepSeek API, category: model-provider }
+  - { host: api.reka.ai, provider: Reka API, category: model-provider }
+  - { host: api.writer.com, provider: Writer API, category: model-provider }
+  - { host: api.upstage.ai, provider: Upstage API, category: model-provider }
+  - { host: api.aleph-alpha.com, provider: Aleph Alpha API, category: model-provider }
+  - { host: api.inceptionlabs.ai, provider: Inception API, category: model-provider }
+  - { host: api.sarvam.ai, provider: Sarvam API, category: model-provider }
+  - { host: dashscope.aliyuncs.com, provider: Alibaba Qwen (DashScope), category: model-provider }
+  - { host: dashscope-intl.aliyuncs.com, provider: Alibaba Qwen (DashScope intl), category: model-provider }
+  - { host: api.moonshot.cn, provider: Moonshot Kimi API, category: model-provider }
+  - { host: api.moonshot.ai, provider: Moonshot Kimi API, category: model-provider }
+  - { host: open.bigmodel.cn, provider: Zhipu GLM API, category: model-provider }
+  - { host: api.z.ai, provider: Z.ai GLM API, category: model-provider }
+  - { host: api.minimax.io, provider: MiniMax API, category: model-provider }
+  - { host: api.minimaxi.com, provider: MiniMax API (China), category: model-provider }
+  - { host: ark.cn-beijing.volces.com, provider: ByteDance Doubao (Volcano Ark), category: model-provider }
+  - { host: qianfan.baidubce.com, provider: Baidu ERNIE (Qianfan), category: model-provider }
+  - { host: aip.baidubce.com, provider: Baidu ERNIE, category: model-provider }
+  - { host: api.stepfun.com, provider: StepFun API, category: model-provider }
+  - { host: api.lingyiwanwu.com, provider: 01.AI API, category: model-provider }
+  - { host: api.baichuan-ai.com, provider: Baichuan API, category: model-provider }
+  - { host: api.hunyuan.cloud.tencent.com, provider: Tencent Hunyuan API, category: model-provider }
+  - { host: spark-api-open.xf-yun.com, provider: iFlytek Spark API, category: model-provider }
+
+  # B. Aggregators and multi-model routers
+  - { host: openrouter.ai, provider: OpenRouter, category: aggregator }
+  - { host: router.requesty.ai, provider: Requesty, category: aggregator }
+  - { host: api.poe.com, provider: Poe API, category: aggregator }
+  - { host: opencode.ai, provider: OpenCode Zen, category: aggregator, shared: true }
+  - { host: api.aisa.one, provider: AIsa, category: aggregator }
+  - { host: api.aimlapi.com, provider: AI/ML API, category: aggregator }
+  - { host: api.edenai.run, provider: Eden AI, category: aggregator }
+  - { host: api.unify.ai, provider: Unify, category: aggregator }
+  - { host: aihubmix.com, provider: AIHubMix, category: aggregator }
+  - { host: api.302.ai, provider: 302.AI, category: aggregator }
+  - { host: nano-gpt.com, provider: NanoGPT, category: aggregator }
+  - { host: api.venice.ai, provider: Venice AI, category: aggregator }
+  - { host: glama.ai, provider: Glama, category: aggregator }
+  - { host: api.withmartian.com, provider: Martian, category: aggregator }
+  - { host: withmartian.com, provider: Martian (legacy API base and website), category: aggregator, shared: true }
+  - { host: api.notdiamond.ai, provider: Not Diamond, category: aggregator }
+  - { host: api.llmgateway.io, provider: LLM Gateway, category: aggregator }
+  - { suffix: .crazyrouter.com, provider: Crazyrouter, category: aggregator }
+  - { host: api.cline.bot, provider: Cline provider, category: aggregator }
+  - { host: api.kilo.ai, provider: Kilo gateway, category: aggregator }
+  - { host: ai-gateway.kilo.ai, provider: Kilo gateway, category: aggregator }
+  - { host: api.kilocode.ai, provider: Kilo gateway (legacy name), category: aggregator }
+  - { host: api.puter.com, provider: Puter AI, category: aggregator }
+  - { host: gen.pollinations.ai, provider: Pollinations, category: aggregator }
+  - { host: text.pollinations.ai, provider: Pollinations (legacy name), category: aggregator }
+
+  # C. Inference platforms (hosted open-weight models)
+  - { host: api.together.xyz, provider: Together AI, category: inference-platform }
+  - { host: api.together.ai, provider: Together AI, category: inference-platform }
+  - { host: api.fireworks.ai, provider: Fireworks AI, category: inference-platform }
+  - { host: api.groq.com, provider: Groq, category: inference-platform }
+  - { host: api.cerebras.ai, provider: Cerebras, category: inference-platform }
+  - { host: api.sambanova.ai, provider: SambaNova, category: inference-platform }
+  - { host: api.deepinfra.com, provider: DeepInfra, category: inference-platform }
+  - { host: api.replicate.com, provider: Replicate, category: inference-platform }
+  - { host: router.huggingface.co, provider: Hugging Face Inference Providers, category: inference-platform }
+  - { host: api-inference.huggingface.co, provider: Hugging Face Inference API, category: inference-platform }
+  - { suffix: .endpoints.huggingface.cloud, provider: Hugging Face Inference Endpoints, category: inference-platform }
+  - { host: integrate.api.nvidia.com, provider: NVIDIA NIM API, category: inference-platform }
+  - { host: api.novita.ai, provider: Novita AI, category: inference-platform }
+  - { host: api.hyperbolic.xyz, provider: Hyperbolic, category: inference-platform }
+  - { host: api.siliconflow.cn, provider: SiliconFlow, category: inference-platform }
+  - { host: api.siliconflow.com, provider: SiliconFlow, category: inference-platform }
+  - { host: api.featherless.ai, provider: Featherless, category: inference-platform }
+  - { host: llm.chutes.ai, provider: Chutes, category: inference-platform }
+  - { host: api.kluster.ai, provider: kluster.ai, category: inference-platform }
+  - { host: api.parasail.io, provider: Parasail, category: inference-platform }
+  - { host: api.inference.net, provider: Inference.net, category: inference-platform }
+  - { host: api.friendli.ai, provider: FriendliAI, category: inference-platform }
+  - { host: inference.baseten.co, provider: Baseten, category: inference-platform }
+  - { host: api.runpod.ai, provider: RunPod Serverless, category: inference-platform }
+  - { suffix: .modal.run, provider: Modal endpoints, category: inference-platform, shared: true }
+  - { suffix: .lepton.run, provider: Lepton (NVIDIA DGX Cloud), category: inference-platform }
+  - { host: api.tokenfactory.nebius.com, provider: Nebius Token Factory, category: inference-platform }
+  - { host: api.studio.nebius.com, provider: Nebius AI Studio (legacy name), category: inference-platform }
+  - { host: api.arliai.com, provider: ArliAI, category: inference-platform }
+
+  # D. Hosted LLM gateways
+  - { host: api.portkey.ai, provider: Portkey, category: gateway }
+  - { host: gateway.ai.cloudflare.com, provider: Cloudflare AI Gateway, category: gateway }
+  - { host: ai-gateway.vercel.sh, provider: Vercel AI Gateway, category: gateway }
+  - { host: ai-gateway.helicone.ai, provider: Helicone AI Gateway, category: gateway }
+  - { host: oai.helicone.ai, provider: Helicone (OpenAI proxy), category: gateway }
+  - { host: anthropic.helicone.ai, provider: Helicone (Anthropic proxy), category: gateway }
+  - { host: api.respan.ai, provider: Respan (formerly Keywords AI), category: gateway }
+  - { host: api.keywordsai.co, provider: Keywords AI (legacy name), category: gateway }
+
+  # E. AI developer tools
+  - { suffix: .individual.githubcopilot.com, provider: GitHub Copilot (personal plan), category: dev-tool }
+  - { suffix: .business.githubcopilot.com, provider: GitHub Copilot Business, category: dev-tool }
+  - { suffix: .enterprise.githubcopilot.com, provider: GitHub Copilot Enterprise, category: dev-tool }
+  - { suffix: .githubcopilot.com, provider: GitHub Copilot, category: dev-tool }
+  - { host: copilot-proxy.githubusercontent.com, provider: GitHub Copilot, category: dev-tool }
+  - { suffix: .cursor.sh, provider: Cursor, category: dev-tool }
+  - { host: cursor-cdn.com, provider: Cursor, category: dev-tool }
+  - { host: marketplace.cursorapi.com, provider: Cursor, category: dev-tool }
+  - { suffix: .kiro.dev, provider: Kiro, category: dev-tool }
+  - { suffix: .kiro.aws.dev, provider: Kiro, category: dev-tool }
+  - { pattern: '^q\.[a-z0-9-]+\.amazonaws\.com$', provider: Amazon Q / Kiro, category: dev-tool }
+  - { suffix: .codeium.com, provider: Windsurf / Codeium, category: dev-tool }
+  - { suffix: .codeiumdata.com, provider: Windsurf / Codeium, category: dev-tool }
+  - { suffix: .windsurf.com, provider: Windsurf, category: dev-tool }
+  - { suffix: .api.augmentcode.com, provider: Augment Code, category: dev-tool }
+  - { host: ampcode.com, provider: Amp, category: dev-tool }
+  - { suffix: .zed.dev, provider: Zed AI, category: dev-tool, shared: true }
+  - { suffix: .trae.ai, provider: Trae, category: dev-tool }
+  - { suffix: .traeapi.us, provider: Trae, category: dev-tool }
+  - { suffix: .mchost.guru, provider: Trae, category: dev-tool }
+  - { suffix: .tabnine.com, provider: Tabnine, category: dev-tool }
+  - { suffix: .devin.ai, provider: Devin / Windsurf, category: dev-tool }
+  - { suffix: .factory.ai, provider: Factory, category: dev-tool }
+
+  # F. Web assistants and cloud agents (mostly seen by the web proxy)
+  - { host: gemini.google.com, provider: Google Gemini, category: web-assistant }
+  - { host: aistudio.google.com, provider: Google AI Studio, category: web-assistant }
+  - { host: notebooklm.google.com, provider: Google NotebookLM, category: web-assistant }
+  - { host: jules.google.com, provider: Google Jules, category: web-assistant }
+  - { host: copilot.microsoft.com, provider: Microsoft Copilot, category: web-assistant }
+  - { host: perplexity.ai, provider: Perplexity, category: web-assistant }
+  - { host: www.perplexity.ai, provider: Perplexity, category: web-assistant }
+  - { host: chat.mistral.ai, provider: Mistral Le Chat, category: web-assistant }
+  - { host: chat.deepseek.com, provider: DeepSeek Chat, category: web-assistant }
+  - { host: grok.com, provider: Grok, category: web-assistant }
+  - { host: meta.ai, provider: Meta AI, category: web-assistant }
+  - { host: chat.qwen.ai, provider: Qwen Chat, category: web-assistant }
+  - { host: kimi.com, provider: Kimi, category: web-assistant }
+  - { host: chat.z.ai, provider: Z.ai Chat, category: web-assistant }
+  - { host: poe.com, provider: Poe, category: web-assistant }
+  - { host: duck.ai, provider: Duck.ai, category: web-assistant }
+  - { host: lmarena.ai, provider: LMArena, category: web-assistant }
+  - { host: t3.chat, provider: T3 Chat, category: web-assistant }
+  - { host: typingmind.com, provider: TypingMind, category: web-assistant }
+  - { host: character.ai, provider: Character.AI, category: web-assistant }
+  - { host: you.com, provider: You.com, category: web-assistant }
+  - { host: genspark.ai, provider: Genspark, category: web-assistant }
+  - { host: manus.im, provider: Manus, category: web-assistant }
+  - { host: lovable.dev, provider: Lovable, category: web-assistant }
+  - { host: bolt.new, provider: Bolt, category: web-assistant }
+  - { host: v0.app, provider: v0, category: web-assistant }
+  - { host: api.v0.dev, provider: v0 API, category: dev-tool }
+
+  # G. Agent infrastructure (cloud browsers, sandboxes, hosted MCP)
+  - { host: api.browserbase.com, provider: Browserbase, category: agent-infra }
+  - { host: connect.browserbase.com, provider: Browserbase, category: agent-infra }
+  - { host: api.browser-use.com, provider: Browser Use Cloud, category: agent-infra }
+  - { host: api.steel.dev, provider: Steel, category: agent-infra }
+  - { host: api.hyperbrowser.ai, provider: Hyperbrowser, category: agent-infra }
+  - { host: api.e2b.dev, provider: E2B sandboxes, category: agent-infra }
+  - { suffix: .e2b.app, provider: E2B sandboxes, category: agent-infra }
+  - { host: backend.composio.dev, provider: Composio, category: agent-infra }
+  - { host: server.smithery.ai, provider: Smithery hosted MCP, category: agent-infra }
+  - { host: mcp.zapier.com, provider: Zapier MCP, category: agent-infra }
+  - { pattern: '^mcp\.[a-z0-9.-]+$', provider: Remote MCP server, category: agent-infra }
+
+  # H. Local model downloads
+  - { host: registry.ollama.ai, provider: Ollama model registry, category: model-download }
+  - { host: huggingface.co, provider: Hugging Face, category: model-download, shared: true }
+
+  # I. Known public relays (the long tail is covered by *_BASE_URL and behavior)
+  - { host: api.chatanywhere.tech, provider: ChatAnywhere relay, category: relay }
+  - { host: api.chatanywhere.org, provider: ChatAnywhere relay, category: relay }
+  - { host: oa.api2d.net, provider: API2D relay, category: relay }
+  - { host: api.ohmygpt.com, provider: OhMyGPT relay, category: relay }
+  - { host: apic1.ohmycdn.com, provider: OhMyGPT relay, category: relay }
+  - { host: c-z0-api-01.hash070.com, provider: OhMyGPT relay, category: relay }
+  - { host: api.openai-hk.com, provider: OpenAI-HK relay, category: relay }

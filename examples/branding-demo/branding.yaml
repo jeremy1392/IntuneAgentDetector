@@ -1,0 +1,25 @@
+# DEMO ONLY - fictitious "ACME Corporation" branding, to see what a customized
+# disclaimer looks like. Do not deploy it: copy branding\branding.yaml instead
+# and fill in your own company, logo, policy and e-mail.
+#
+# Preview:
+#     dist\detectoragent.exe disclaimer --preview --branding examples\branding-demo\branding.yaml
+
+version: 1
+company: "ACME Corporation"
+logo: logo.png
+title: "{company} - AI agent notice"
+heading: "An AI agent was detected on your computer."
+text: |
+  {company} allows AI agents only when they are approved by IT Security. An unapproved agent can read your files, run commands and send {company} data outside the company.
+  • Use only the tools listed as approved.
+  • Never paste confidential, personal or customer data into an unapproved tool.
+
+  This detection and your acceptance are logged.
+checkbox: "I have read and understood the {company} AI policy."
+button: "I accept"
+policy: "https://intranet.acme.example/ai-policy"
+policy_label: "Open the ACME AI policy"
+email: "it-security@acme.example"
+email_subject: "AI agent question"
+contact_text: "Need an exception? Write to {email}."
