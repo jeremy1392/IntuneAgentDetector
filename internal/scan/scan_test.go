@@ -1,10 +1,13 @@
 package scan
 
 import (
+	"net"
 	"os"
 	"path/filepath"
 	"testing"
 	"unicode/utf16"
+
+	"golang.org/x/sys/windows"
 )
 
 func TestParseExtensionID(t *testing.T) {
@@ -119,5 +122,40 @@ func TestPort(t *testing.T) {
 	// 443 in network byte order, as stored in the low 16 bits of a DWORD.
 	if got := port(0xBB01); got != 443 {
 		t.Errorf("port = %d", got)
+	}
+}
+
+func TestDNSRecordIPv4Mapped(t *testing.T) {
+	// getaddrinfo with AF_UNSPEC caches IPv4 answers as IPv4-mapped AAAA
+	// records: they must match the IPv4 connection table.
+	mapped := windows.DNSRecord{Type: windows.DNS_TYPE_AAAA}
+	copy(mapped.Data[:], net.ParseIP("::ffff:104.18.2.115").To16())
+	v6 := windows.DNSRecord{Type: windows.DNS_TYPE_AAAA}
+	copy(v6.Data[:], net.ParseIP("2607:6bc0::10").To16())
+	a := windows.DNSRecord{Type: windows.DNS_TYPE_A}
+	copy(a.Data[:], net.ParseIP("160.79.104.10").To4())
+	cname := windows.DNSRecord{Type: windows.DNS_TYPE_CNAME}
+
+	if ip := recordIP(&mapped); len(ip) != 4 || ip.String() != "104.18.2.115" {
+		t.Errorf("mapped AAAA: got %v (len %d)", ip, len(ip))
+	}
+	if ip := recordIP(&v6); ip.String() != "2607:6bc0::10" {
+		t.Errorf("AAAA: got %v", ip)
+	}
+	if ip := recordIP(&a); ip.String() != "160.79.104.10" {
+		t.Errorf("A: got %v", ip)
+	}
+	if ip := recordIP(&cname); ip != nil {
+		t.Errorf("CNAME: got %v, want nil", ip)
+	}
+
+	ips := appendIPs(nil, []net.IP{recordIP(&a), recordIP(&mapped)})
+	ips = appendIPs(ips, []net.IP{net.ParseIP("160.79.104.10")})
+	if len(ips) != 2 {
+		t.Errorf("appendIPs kept duplicates: %v", ips)
+	}
+	inv := invertDNS(map[string][]net.IP{"openrouter.ai": {recordIP(&mapped)}})
+	if got := inv["104.18.2.115"]; len(got) != 1 || got[0] != "openrouter.ai" {
+		t.Errorf("invertDNS: got %v", inv)
 	}
 }

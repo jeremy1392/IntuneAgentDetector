@@ -62,6 +62,18 @@ func DecodePayload(s string) (Payload, error) {
 	return p, nil
 }
 
+// AnyUnapproved reports whether at least one tool is not approved. The notice
+// is opened only in that case; approved tools are then listed alongside, so
+// that a user of approved tools only is never interrupted.
+func AnyUnapproved(tools []Tool) bool {
+	for _, t := range tools {
+		if !t.Approved {
+			return true
+		}
+	}
+	return false
+}
+
 // Pending returns the tools that must be shown to the user with this SID:
 // findings of that user or machine-wide that match the trigger rules. Past
 // acceptances are deliberately ignored: as long as an agent is still

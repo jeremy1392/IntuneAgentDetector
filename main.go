@@ -86,6 +86,7 @@ Scan options:
   --no-disclaimer      never show the disclaimer
   --no-eventlog        do not write to the Windows Event Log
   --timeout DURATION   maximum scan duration (default 60s)
+  --metrics            add timing and resource metrics to the report
 
 Disclaimer options:
   --branding FILE      check a branding file before deploying it (with --preview)
@@ -147,6 +148,7 @@ func cmdScan(args []string) int {
 	noDisclaimer := fs.Bool("no-disclaimer", false, "never show the disclaimer")
 	noEventLog := fs.Bool("no-eventlog", false, "do not write to the Windows Event Log")
 	timeout := fs.Duration("timeout", 60*time.Second, "maximum scan duration")
+	withMetrics := fs.Bool("metrics", false, "add timing and resource metrics to the report")
 	fs.Usage = func() { usage(os.Stderr) }
 	if err := fs.Parse(args); err != nil {
 		return exitError
@@ -175,7 +177,9 @@ func cmdScan(args []string) int {
 	ctx, cancel := context.WithTimeout(context.Background(), *timeout)
 	defer cancel()
 	snap := scan.Run(ctx, cat, scan.Options{RecentDays: *days, Now: start})
+	correlateStart := time.Now()
 	findings := correlate.Build(cat, snap)
+	correlateTime := time.Since(correlateStart)
 
 	host, _ := os.Hostname()
 	rep := &model.Report{
@@ -196,6 +200,9 @@ func cmdScan(args []string) int {
 	}
 	rep.Summary = model.Summarize(findings)
 	rep.DurationMs = time.Since(start).Milliseconds()
+	if *withMetrics {
+		rep.Metrics = scanMetrics(snap, correlateTime)
+	}
 	report.Sanitize(rep)
 
 	if err := writeReport(rep, *format, *out); err != nil {
@@ -228,6 +235,25 @@ func cmdScan(args []string) int {
 		return exitError // incomplete scan: "nothing found" would be misleading
 	}
 	return exitClean
+}
+
+// scanMetrics measures the cost of the scan: time per collector, correlation
+// time, CPU time and peak working set of this process so far.
+func scanMetrics(snap *scan.Snapshot, correlateTime time.Duration) *model.Metrics {
+	ms := func(d time.Duration) float64 { return float64(d.Microseconds()) / 1000 }
+	m := &model.Metrics{
+		CollectorsMs: map[string]float64{},
+		CorrelateMs:  ms(correlateTime),
+		Processes:    len(snap.Processes),
+		Connections:  len(snap.Conns),
+	}
+	for name, d := range snap.Timings {
+		m.CollectorsMs[name] = ms(d)
+	}
+	cpu, peak := winapi.ProcessStats()
+	m.CPUTimeMs = ms(cpu)
+	m.PeakWorkingSetMB = float64(peak) / (1 << 20)
+	return m
 }
 
 func writeReport(rep *model.Report, format, out string) error {
@@ -294,7 +320,7 @@ func showDisclaimers(cat *catalog.Catalog, rep *model.Report, snap *scan.Snapsho
 			func() {
 				defer ses.Close()
 				tools := disclaimer.Pending(cat, rep.Findings, ses.SID)
-				if len(tools) == 0 || disclaimer.RunningInSession(snap.Processes, exe, ses.ID) {
+				if !disclaimer.AnyUnapproved(tools) || disclaimer.RunningInSession(snap.Processes, exe, ses.ID) {
 					return
 				}
 				enc, err := disclaimer.Payload{Version: cat.Disclaimer.Version, Tools: tools, Rules: rulesPath,
@@ -319,7 +345,7 @@ func showDisclaimers(cat *catalog.Catalog, rep *model.Report, snap *scan.Snapsho
 		return // service account without an interactive desktop
 	}
 	tools := disclaimer.Pending(cat, rep.Findings, snap.RunAsSID)
-	if len(tools) == 0 {
+	if !disclaimer.AnyUnapproved(tools) {
 		return
 	}
 	if evlog != nil {

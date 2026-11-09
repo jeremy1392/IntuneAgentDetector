@@ -2,6 +2,7 @@ package scan
 
 import (
 	"fmt"
+	"runtime"
 	"strings"
 	"sync"
 	"unsafe"
@@ -65,7 +66,11 @@ func identify(path string, withSigner bool) FileIdentity {
 		c.id.Product, c.id.Company = versionInfo(path)
 	}
 	if withSigner && !c.signerDone {
-		c.id.Signer = embeddedSigner(path)
+		// A signer name only counts when the signature verifies: anyone can
+		// embed a self-issued certificate that bears a vendor's name.
+		if s := embeddedSigner(path); s != "" && verifySignature(path) {
+			c.id.Signer = s
+		}
 		c.signerDone = true
 	}
 	identityMu.Lock()
@@ -110,10 +115,38 @@ func versionInfo(path string) (product, company string) {
 	return query("ProductName"), query("CompanyName")
 }
 
+// verifySignature verifies the embedded Authenticode signature of a file
+// offline: the file hash and the certificate chain are checked against the
+// local trust store, revocation is not checked and no URL is retrieved, so a
+// scan never touches the network. It is called only for candidate binaries
+// whose catalog entry lists signers.
+func verifySignature(path string) bool {
+	p16, err := windows.UTF16PtrFromString(path)
+	if err != nil {
+		return false
+	}
+	file := &windows.WinTrustFileInfo{Size: uint32(unsafe.Sizeof(windows.WinTrustFileInfo{})), FilePath: p16}
+	data := &windows.WinTrustData{
+		Size:                            uint32(unsafe.Sizeof(windows.WinTrustData{})),
+		UIChoice:                        windows.WTD_UI_NONE,
+		RevocationChecks:                windows.WTD_REVOKE_NONE,
+		UnionChoice:                     windows.WTD_CHOICE_FILE,
+		StateAction:                     windows.WTD_STATEACTION_VERIFY,
+		FileOrCatalogOrBlobOrSgnrOrCert: unsafe.Pointer(file),
+		ProvFlags:                       windows.WTD_CACHE_ONLY_URL_RETRIEVAL,
+	}
+	verifyErr := windows.WinVerifyTrustEx(windows.InvalidHWND, &windows.WINTRUST_ACTION_GENERIC_VERIFY_V2, data)
+	data.StateAction = windows.WTD_STATEACTION_CLOSE
+	_ = windows.WinVerifyTrustEx(windows.InvalidHWND, &windows.WINTRUST_ACTION_GENERIC_VERIFY_V2, data)
+	runtime.KeepAlive(file)
+	return verifyErr == nil
+}
+
 // embeddedSigner returns the subject name of the embedded Authenticode
-// signer. The signature is parsed, not cryptographically verified: hashing
-// large binaries would make the scan slow. Packaged apps are identified by
-// their package family name instead.
+// signer; verifySignature tells whether the signature is valid. Binaries
+// signed through a catalog file have no embedded signer and are identified
+// by other evidence. Packaged apps are identified by their package family
+// name instead.
 func embeddedSigner(path string) string {
 	p16, err := windows.UTF16PtrFromString(path)
 	if err != nil {

@@ -41,7 +41,7 @@ text: |
   An AI agent can read your files, run commands, and send data to external services. Its use is governed by the AI policy of {company}:
   • Only use approved tools.
   • Never share confidential, personal, or customer data with a tool that is not approved.
-  • You remain responsible for any action an agent takes on your computer.
+  • If you are not sure that a tool is approved, ask IT Security before using it.
 
   This detection and your acceptance are logged by IT Security.
 

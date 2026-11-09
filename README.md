@@ -46,8 +46,9 @@ connection.
 When an AI tool is found, the window shown at the top of this page opens on the
 user's screen. The user must tick the box, then click **I accept**; the window
 has no close button. It comes back at every scan as long as an AI tool is
-detected: installed, running, or used in the last 30 days. Approved tools are
-listed too, marked "approved". Leftover files of an uninstalled tool never open
+detected: installed, running, or used in the last 30 days. Approved tools
+never open the window on their own; when it opens for an unapproved tool,
+they are listed too, marked "approved". Leftover files of an uninstalled tool never open
 the window.
 
 ### What IT Security gets
@@ -125,8 +126,9 @@ once; the build in section 3 puts it in the package.
    sanctioned: [github-copilot, contoso.openai.azure.com]
    ```
 
-   Approved tools still appear in the window, marked "approved". They no longer
-   count as violations: no warning in the Event Log, and no issue in the Intune
+   Approved tools no longer open the window on their own (they are listed,
+   marked "approved", when it opens for another tool) and no longer count as
+   violations: no warning in the Event Log, and no issue in the Intune
    report.
 
 > **Important:** have the final text validated by your legal team and your data

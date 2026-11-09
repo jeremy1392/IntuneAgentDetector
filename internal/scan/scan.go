@@ -40,6 +40,7 @@ func Run(ctx context.Context, cat *catalog.Catalog, opt Options) *Snapshot {
 		SessionID:  id.SessionID,
 		RecentDays: opt.RecentDays,
 		DNS:        map[string][]net.IP{},
+		Timings:    map[string]time.Duration{},
 	}
 	note := func(msgs ...string) { s.Coverage = append(s.Coverage, msgs...) }
 	fail := func(what string, err error) {
@@ -66,7 +67,10 @@ func Run(ctx context.Context, cat *catalog.Catalog, opt Options) *Snapshot {
 					results <- func() { fail(name, fmt.Errorf("panic: %v", r)) }
 				}
 			}()
-			results <- f()
+			begin := time.Now()
+			store := f()
+			elapsed := time.Since(begin)
+			results <- func() { s.Timings[name] = elapsed; store() }
 		}()
 	}
 	run("processes", func() apply {
@@ -80,10 +84,7 @@ func Run(ctx context.Context, cat *catalog.Catalog, opt Options) *Snapshot {
 	run("dns", func() apply {
 		dns, err := dnsCache(cat)
 		return func() {
-			switch {
-			case len(dns) == 0 && !id.Elevated && !id.IsSystem():
-				note("DNS cache unreadable without administrator rights: network attribution limited to dedicated IP ranges")
-			case err != nil:
+			if err != nil {
 				note("DNS cache enumeration unavailable: only exact catalog host names were looked up")
 			}
 			s.DNS = dns
@@ -121,7 +122,9 @@ func Run(ctx context.Context, cat *catalog.Catalog, opt Options) *Snapshot {
 	}
 	s.Children = buildChildren(s.Processes)
 	s.IPToHosts = invertDNS(s.DNS)
+	begin := time.Now()
 	inspectCandidates(s, cat)
+	s.Timings["inspect"] = time.Since(begin)
 	countDenied(s)
 	return s
 }
@@ -208,7 +211,7 @@ func inspectCandidates(s *Snapshot, cat *catalog.Catalog) {
 						}
 					}
 				}
-				if wantSigner {
+				if wantSigner && !strongIdentity(cat, p) {
 					p.Signer = identify(p.Path, true).Signer
 				}
 				if j.modules {
@@ -240,4 +243,16 @@ func countDenied(s *Snapshot) {
 	if denied > 0 && !s.Elevated && !s.IsSystem {
 		s.Coverage = append(s.Coverage, fmt.Sprintf("%d processes of other users or protected processes could not be inspected", denied))
 	}
+}
+
+// strongIdentity reports whether a catalog tool already matches the process by
+// package, install path or command line. Such a match gives high confidence on
+// its own, so the costly verification of the signature is skipped.
+func strongIdentity(cat *catalog.Catalog, p *Process) bool {
+	for _, t := range cat.Tools {
+		if (p.PackageFamily != "" && t.MatchPackage(p.PackageFamily)) || t.MatchPath(p.Path) || t.MatchCmdline(p.Cmdline) {
+			return true
+		}
+	}
+	return false
 }

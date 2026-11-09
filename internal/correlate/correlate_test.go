@@ -218,3 +218,45 @@ func keys(m map[string]model.Finding) []string {
 	}
 	return out
 }
+
+// A base-URL variable must not turn a process into an LLM client when the
+// process holds no outbound connection or merely inherited the variable from
+// the persistent environment: its shell children are then not agent actions.
+func TestBaseURLWithoutUseIsNotAnAgent(t *testing.T) {
+	cat, err := catalog.Load(rules.Default)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range []struct {
+		name      string
+		conn      bool
+		inherited bool
+	}{
+		{"no outbound connection", false, false},
+		{"inherited from the user environment", true, true},
+	} {
+		procs := map[uint32]*scan.Process{
+			900: proc(900, 1, "powershell.exe", `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`, "powershell -File loop.ps1"),
+			901: proc(901, 900, "git.exe", `C:\Program Files\Git\cmd\git.exe`, "git clone https://example.org/r.git"),
+		}
+		procs[900].Env = []scan.EnvVar{{Name: "OPENAI_BASE_URL", Value: "llm-gateway.example.com"}}
+		s := &scan.Snapshot{Processes: procs, Children: map[uint32][]uint32{900: {901}}}
+		if tc.conn {
+			s.Conns = []scan.Conn{{PID: 900, RemoteIP: net.ParseIP("93.184.215.14"), RemotePort: 443}}
+		}
+		if tc.inherited {
+			s.EnvItems = []scan.EnvItem{{Kind: "base-url", Var: "OPENAI_BASE_URL", Host: "llm-gateway.example.com",
+				UserSID: userSID, Scope: "user"}}
+		}
+		for _, f := range Build(cat, s) {
+			if strings.HasPrefix(f.ToolID, "probable-agent") {
+				t.Errorf("%s: unexpected %s", tc.name, f.ToolID)
+			}
+			// The persistent variable itself remains a configuration finding;
+			// only the process without a connection must stay below medium.
+			if !tc.inherited && f.Level == model.LevelActive && f.Confidence >= model.ConfidenceMedium {
+				t.Errorf("%s: actionable active finding %s (%s)", tc.name, f.ToolID, f.Confidence)
+			}
+		}
+	}
+}

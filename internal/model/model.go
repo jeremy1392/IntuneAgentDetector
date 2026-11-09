@@ -176,6 +176,18 @@ type Report struct {
 	Summary        Summary   `json:"summary"`
 	Findings       []Finding `json:"findings"`
 	Errors         []string  `json:"errors,omitempty"`
+	Metrics        *Metrics  `json:"metrics,omitempty"`
+}
+
+// Metrics describes the cost of one scan. It is filled only on request
+// (scan --metrics), for performance measurements.
+type Metrics struct {
+	CollectorsMs     map[string]float64 `json:"collectors_ms"`
+	CorrelateMs      float64            `json:"correlate_ms"`
+	CPUTimeMs        float64            `json:"cpu_time_ms"`
+	PeakWorkingSetMB float64            `json:"peak_working_set_mb"`
+	Processes        int                `json:"processes"`
+	Connections      int                `json:"connections"`
 }
 
 // Summarize computes the summary counters from the findings.

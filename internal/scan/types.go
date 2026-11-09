@@ -113,6 +113,10 @@ type Snapshot struct {
 	Coverage   []string
 	Errors     []string
 	RecentDays int
+
+	// Timings holds how long each collector and the candidate inspection
+	// took, for the optional report metrics.
+	Timings map[string]time.Duration
 }
 
 // ProfileBySID returns the profile with this SID, or nil.

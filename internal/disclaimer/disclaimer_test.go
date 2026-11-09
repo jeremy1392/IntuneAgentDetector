@@ -120,3 +120,15 @@ func sortCopy(in []string) []string {
 	}
 	return out
 }
+
+func TestAnyUnapproved(t *testing.T) {
+	if AnyUnapproved(nil) {
+		t.Error("no tool: nothing to show")
+	}
+	if AnyUnapproved([]Tool{{ID: "github-copilot", Approved: true}}) {
+		t.Error("approved tools only: the notice must not open")
+	}
+	if !AnyUnapproved([]Tool{{ID: "github-copilot", Approved: true}, {ID: "claude-code"}}) {
+		t.Error("one unapproved tool: the notice must open")
+	}
+}

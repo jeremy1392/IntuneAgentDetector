@@ -370,12 +370,27 @@ func (a *acc) baseURL(varName, host, sid string, level model.Level, where string
 	ev := model.Evidence{Kind: "base-url", Detail: detail, Level: level, Confidence: model.ConfidenceMedium}
 	if p != nil {
 		ev.PID, ev.Path = p.PID, p.Path
-		if p != nil && len(a.procTools[p.PID]) > 0 {
+		if len(a.procTools[p.PID]) > 0 {
 			for _, m := range a.procTools[p.PID] {
 				f, _ := a.toolFinding(m.tool, sid)
 				addEvidence(f, ev)
 			}
 			return
+		}
+		// A variable that every process inherits from the persistent
+		// environment, or that sits in a process with no outbound
+		// connection, describes configuration, not use: it must not turn
+		// that process into an LLM client (and its children into agent
+		// actions). The persistent variable is reported on its own.
+		switch {
+		case a.persistentBaseURL(varName, host, sid):
+			ev.Confidence = model.ConfidenceLow
+			ev.Detail += " (inherited from the persistent environment)"
+			p = nil
+		case !a.hasOutboundConn(p.PID):
+			ev.Confidence = model.ConfidenceLow
+			ev.Detail += " (no outbound connection)"
+			p = nil
 		}
 	}
 	if ep := a.cat.MatchHost(host); ep != nil {
@@ -395,6 +410,31 @@ func (a *acc) baseURL(varName, host, sid string, level model.Level, where string
 		a.attach(p.PID, key)
 		a.llmProcs[p.PID] = true
 	}
+}
+
+// persistentBaseURL reports whether the same variable with the same host is
+// set in the persistent machine environment or in this user's environment.
+func (a *acc) persistentBaseURL(varName, host, sid string) bool {
+	for _, it := range a.s.EnvItems {
+		if it.Kind != "base-url" || !strings.EqualFold(it.Var, varName) || !strings.EqualFold(it.Host, host) {
+			continue
+		}
+		if it.UserSID == "" || sid == "" || strings.EqualFold(it.UserSID, sid) {
+			return true
+		}
+	}
+	return false
+}
+
+// hasOutboundConn reports whether a process holds an established connection
+// to a remote, non-loopback address.
+func (a *acc) hasOutboundConn(pid uint32) bool {
+	for _, c := range a.s.Conns {
+		if c.PID == pid && c.RemoteIP != nil && !c.RemoteIP.IsLoopback() && !c.RemoteIP.IsUnspecified() {
+			return true
+		}
+	}
+	return false
 }
 
 func isLocalHost(h string) bool {

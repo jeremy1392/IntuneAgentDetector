@@ -13,7 +13,7 @@
 # Endpoints and identifiers were checked against vendor documentation and DNS
 # on 2026-11-08; the Anthropic address range and the Trae and Augment data
 # folders are still marked unverified.
-version: "2026.11.08"
+version: "2026.11.09"
 
 # The disclaimer is shown at every scan for as long as an agent matching the
 # trigger rules is detected; accepting it never silences the next scan.
@@ -31,7 +31,7 @@ disclaimer:
     An AI agent can read your files, run commands, and send data to external services. Its use is governed by the AI policy of {company}:
     • Only use approved tools.
     • Never share confidential, personal, or customer data with a tool that is not approved.
-    • You remain responsible for any action an agent takes on your computer.
+    • If you are not sure that a tool is approved, ask IT Security before using it.
 
     This detection and your acceptance are logged by IT Security.
   checkbox: "I have read and understood the AI acceptable use policy."
@@ -191,7 +191,7 @@ tools:
     process:
       cmdline: ['(?i)[\\/]@github[\\/]copilot[\\/]']
     npm: ['@github/copilot']
-    residue: ['%USERPROFILE%\.copilot']
+    # No residue folder: ~/.copilot is now shared with the Copilot runtime of VS Code.
 
   - id: opencode
     name: OpenCode
@@ -579,7 +579,8 @@ endpoints:
   - { host: platform.claude.com, provider: Anthropic Console, category: model-provider }
   - { host: statsig.anthropic.com, provider: Anthropic telemetry, category: model-provider }
   - { host: claude.ai, provider: Claude.ai, category: web-assistant }
-  - { cidr: 160.79.104.0/23, provider: Anthropic API (dedicated range), category: model-provider, unverified: true }
+  - { cidr: 160.79.104.0/23, provider: Anthropic API (dedicated range), category: model-provider }
+  - { cidr: 2607:6bc0::/48, provider: Anthropic API (dedicated range), category: model-provider }
   - { host: generativelanguage.googleapis.com, provider: Google Gemini API, category: model-provider }
   - { host: cloudcode-pa.googleapis.com, provider: Google Gemini Code Assist API, category: model-provider }
   - { host: aiplatform.googleapis.com, provider: Google Vertex AI, category: model-provider, shared: true }

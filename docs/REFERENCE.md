@@ -40,7 +40,7 @@ so the scanner also looks for behavior:
 |---|---|
 | A process is connected to an LLM endpoint of the catalog: model providers, aggregators such as OpenRouter, inference platforms, gateways, known relays | `<provider> used by <process>` |
 | That process also runs shells or interpreters (cmd, PowerShell, bash, git…) | `Probable custom AI agent (<process>)` |
-| An `*_BASE_URL` / `*_API_BASE` variable points to a host outside the catalog | `Unknown LLM relay <host>` |
+| An `*_BASE_URL` / `*_API_BASE` variable points to a host outside the catalog | `Unknown LLM relay <host>` (a variable inherited from the user or machine environment, or held by a process without any outbound connection, is configuration only: it does not make the process an LLM client) |
 | A process loads inference DLLs (`ggml*`, `llama*`, `onnxruntime-genai`) | `Local LLM runtime in <process>` |
 | An MCP server runs (`@modelcontextprotocol/…`, `mcp-server-*`, `uvx mcp-…`) | evidence on the agent that launched it, or `MCP server …` |
 | A browser runs under automation (`--remote-debugging-port`, Playwright, Puppeteer) | evidence on the agent that drives it, or `Automated browser` |
@@ -85,8 +85,10 @@ medium or high) opens a window in that user's session:
 - a link to the AI policy and a clickable contact e-mail;
 - no close button; the window stays on top of the others.
 
-**The window comes back at every scan for as long as an agent is still
-detected**, approved or not. Accepting it is logged (event 410) but does not
+**The window comes back at every scan for as long as an unapproved agent is
+still detected.** It opens only when at least one listed tool is not
+approved; approved tools are then listed alongside, so a user of approved
+tools only is never interrupted. Accepting it is logged (event 410) but does not
 silence the next scan. With the default task, a user who keeps an agent sees it
 at logon and every hour; change the frequency with `install.ps1
 -IntervalMinutes`. Leftover data (level residue) and low-confidence findings
@@ -145,7 +147,8 @@ The `sanctioned` list in [rules/catalog.yaml](../rules/catalog.yaml) accepts:
   Azure OpenAI resource;
 - endpoint suffixes starting with a dot, such as `.business.githubcopilot.com`.
 
-An approved finding is still listed in the window, marked "approved". It is not
+An approved finding never opens the window by itself; it is listed, marked
+"approved", when the window opens for an unapproved tool. It is not
 actionable: events 100 and 300 stay at the Information level, the scan exit
 code does not count it, and the Intune Remediations report does not flag it.
 The catalog is embedded in the program: rebuild after every change.
@@ -245,7 +248,7 @@ written stay in the log.
 
 ```
 detectoragent scan [--format json|text] [--out FILE] [--rules FILE] [--branding FILE]
-                   [--days N] [--no-disclaimer] [--no-eventlog] [--timeout 60s]
+                   [--days N] [--no-disclaimer] [--no-eventlog] [--timeout 60s] [--metrics]
 detectoragent disclaimer --preview [--branding FILE]   # show the window with sample tools, record nothing
 detectoragent disclaimer --selftest [--branding FILE]  # show it and accept it after 2 s, record nothing
 detectoragent check-branding [FILE]                    # validate a branding file, show nothing
@@ -260,8 +263,13 @@ detectoragent version
 | 3 | disclaimer not accepted (disclaimer command) |
 
 Run it elevated for full coverage. Without administrator rights it scans only
-the current user and cannot read BAM, Prefetch or the DNS cache; the report
-lists these gaps in `coverage_notes`.
+the current user, cannot inspect other users' processes and cannot read BAM
+or Prefetch; the report lists these gaps in `coverage_notes`.
+
+`--metrics` adds a `metrics` object to the JSON report: time per collector,
+correlation time, CPU time and peak working set of the scan, and the number of
+processes and connections seen, to measure what a scan costs on a given
+machine.
 
 ## Outputs
 
@@ -327,8 +335,9 @@ says why, so a script failure never flags a PC.
   provider list, the "Generative AI" category of Defender for Cloud Apps, and
   the `Unknown LLM relay` findings reported by the fleet.
 - Endpoints and identifiers were checked against vendor documentation and DNS
-  on 2026-11-08. What is still marked `unverified` (the Anthropic address range
-  and a few install paths) needs confirmation on a real installation. Lambda's
+  on 2026-11-09. The Anthropic API ranges (IPv4 and IPv6) come from Anthropic's
+  documentation. What is still marked `unverified` (a few install paths) needs
+  confirmation on a real installation. Lambda's
   and OpenPipe's API hosts were removed: they no longer exist.
 
 ## Privacy
@@ -347,13 +356,19 @@ says why, so a script failure never flags a PC.
 - Not continuous: an agent started and stopped between two scans is only seen
   through its traces, and a script run by `python.exe` only leaves
   `python.exe`.
-- The DNS cache keeps names for a few minutes and needs administrator rights on
-  recent Windows builds (the scheduled task runs as SYSTEM).
+- The DNS cache keeps names for a few minutes. Some Windows builds no longer
+  list the cache (undocumented `DnsGetCacheDataTable`); the scan then looks up
+  the exact catalog host names in the cache, under the keys that `getaddrinfo`
+  uses, so host suffixes (such as `*.openai.azure.com`) are no longer
+  attributed through DNS on those builds.
 - Agents running fully in the cloud, in a VM, in WSL or in a container, and
   relays on arbitrary domains, are out of reach of the endpoint: cover them with
   the web proxy (TLS inspection) and Defender for Cloud Apps.
-- Signatures are parsed but not cryptographically verified, to keep the scan
-  fast; MSIX apps are identified by their package family name instead.
+- A vendor signature counts only if it verifies offline (hash and certificate
+  chain against the local trust store, no revocation check, no network). The
+  check runs only when no package, install path or command line already
+  identifies the tool. Binaries signed through a catalog file are identified
+  by other evidence; MSIX apps by their package family name.
 - A local administrator can remove the task: alert on missing event 100.
 
 ## Development
