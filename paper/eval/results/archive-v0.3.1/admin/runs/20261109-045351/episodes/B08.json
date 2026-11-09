@@ -1,0 +1,118 @@
+﻿{
+    "id":  "B08",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "go build with module download",
+    "mode":  "admin",
+    "run_id":  "20261109-045351",
+    "started":  "2026-11-09T05:09:02.2091271+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  14576,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  3808,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  29632,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  10576,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  17192,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  13308,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  5648,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  25860,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  29396,
+                          "name":  "link.exe"
+                      },
+                      {
+                          "pid":  9896,
+                          "name":  "compile.exe"
+                      },
+                      {
+                          "pid":  18960,
+                          "name":  "compile.exe"
+                      },
+                      {
+                          "pid":  13576,
+                          "name":  "link.exe"
+                      },
+                      {
+                          "pid":  18732,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  28792,
+                          "name":  "link.exe"
+                      },
+                      {
+                          "pid":  21316,
+                          "name":  "go.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "python.exe",
+                                  "code.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B08-1.json",
+                                         "B08-2.json",
+                                         "B08-3.json"
+                                     ]
+                       }
+}

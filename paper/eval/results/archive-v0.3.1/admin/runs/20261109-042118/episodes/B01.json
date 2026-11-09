@@ -1,0 +1,72 @@
+﻿{
+    "id":  "B01",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Behavioural twin",
+    "description":  "Twin of A02: Python script, PyPI JSON API, persistent cmd",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:32:13.6445396+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  19256,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  5500,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  21136,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  16284,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B01-1.json",
+                                         "B01-2.json",
+                                         "B01-3.json"
+                                     ]
+                       }
+}

@@ -1,0 +1,143 @@
+﻿{
+    "id":  "A02",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Model provider (dedicated range)",
+    "description":  "Python agent, Anthropic API, persistent cmd",
+    "mode":  "standard",
+    "run_id":  "20261109-135523",
+    "started":  "2026-11-09T13:56:00.1412922+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  24572,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  23404,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  26476,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  8260,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A02-1.json",
+                                         "A02-2.json",
+                                         "A02-3.json"
+                                     ]
+                       }
+}

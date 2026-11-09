@@ -1,0 +1,193 @@
+﻿{
+    "id":  "B04",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "npm install with install script (cmd)",
+    "mode":  "admin",
+    "run_id":  "20261109-045351",
+    "started":  "2026-11-09T05:06:37.3660069+02:00",
+    "samples":  23,
+    "processes":  [
+                      {
+                          "pid":  21448,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  23024,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  17084,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  7204,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  8932,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  5504,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  4524,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  17872,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  23656,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  29528,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  19292,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  3364,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  26588,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  27032,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  17684,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  29424,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  408,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  25860,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  404,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  29684,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  24164,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  29592,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  21136,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  22656,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  15548,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  8312,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  18384,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  12156,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  9904,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  24232,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  24496,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  17108,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  16840,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  23412,
+                          "name":  "cmd.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B04-1.json",
+                                         "B04-2.json",
+                                         "B04-3.json"
+                                     ]
+                       }
+}

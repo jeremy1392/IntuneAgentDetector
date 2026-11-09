@@ -1,0 +1,99 @@
+﻿{
+    "id":  "C01",
+    "label":  "component",
+    "scope":  "main",
+    "class":  "Inference runtime",
+    "description":  "Process loading a module named like an inference runtime (ggml), no network",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:28:35.3188732+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  18204,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  15548,
+                          "name":  "python.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "local-llm-runtime:python.exe",
+                                                "tool_name":  "Local LLM runtime in python.exe",
+                                                "category":  "local-llm",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "module"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "local-llm-runtime:python.exe",
+                                                "tool_name":  "Local LLM runtime in python.exe",
+                                                "category":  "local-llm",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "module"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "local-llm-runtime:python.exe",
+                                                "tool_name":  "Local LLM runtime in python.exe",
+                                                "category":  "local-llm",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "module"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "C01-1.json",
+                                         "C01-2.json",
+                                         "C01-3.json"
+                                     ]
+                       }
+}

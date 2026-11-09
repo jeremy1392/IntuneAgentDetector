@@ -7,3 +7,18 @@
 *.intunewin
 last-scan.json
 /rsrc_windows_*.syso
+
+# Evaluation bench of the paper (paper/eval): the raw data identify the
+# workstation (host and user names, paths) and stay local; the tables and
+# numbers derived from them are published. results/*/episodes/ is the
+# superseded single-run layout of the first version of the bench.
+/paper/eval/results/*/scans/
+/paper/eval/results/*/runs/*/scans/
+/paper/eval/results/archive-*/*/runs/*/scans/
+/paper/eval/results/*/episodes/
+/paper/eval/results/*/insitu.json
+/paper/eval/results/inventory.json
+/paper/eval/results/*.log
+/paper/eval/results/*/dns-ttl-scans/
+/paper/eval/results/*/intermittent-scans/
+__pycache__/

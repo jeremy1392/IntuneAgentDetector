@@ -1,0 +1,213 @@
+﻿{
+    "id":  "B07",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "dotnet restore and build",
+    "mode":  "standard",
+    "run_id":  "20261109-014117",
+    "started":  "2026-11-09T01:55:48.7162722+02:00",
+    "samples":  21,
+    "processes":  [
+                      {
+                          "pid":  3984,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  28176,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  3020,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  15032,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  13696,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  16764,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  9332,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  26152,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  5324,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  13508,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  8296,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  26232,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  15744,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  17592,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  18388,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  11088,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  9212,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  20336,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  27188,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  8228,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  21664,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  18944,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  13652,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  21392,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  25216,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  25316,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  27172,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23700,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  26712,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17628,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  2332,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24492,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  2684,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  20928,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  3572,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24036,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17360,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  3284,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  14064,
+                          "name":  "dotnet.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "code.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B07-1.json",
+                                         "B07-2.json",
+                                         "B07-3.json"
+                                     ]
+                       }
+}

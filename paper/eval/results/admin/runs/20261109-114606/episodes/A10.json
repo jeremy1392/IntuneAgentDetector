@@ -1,0 +1,183 @@
+﻿{
+    "id":  "A10",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Agent driving a browser",
+    "description":  "Python agent, Anthropic API, headless Chrome with remote debugging, no shell",
+    "mode":  "admin",
+    "run_id":  "20261109-114606",
+    "started":  "2026-11-09T11:51:32.4343211+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  15904,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  2620,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  3612,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  11676,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  24292,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  11156,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  11524,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  14372,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  19328,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  8520,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  17840,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  26460,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  28772,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  24352,
+                          "name":  "chrome.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "browser-automation:chrome.exe",
+                                                "tool_name":  "Automated browser (chrome.exe)",
+                                                "category":  "browser-automation",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "browser-automation"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "browser-automation:chrome.exe",
+                                                "tool_name":  "Automated browser (chrome.exe)",
+                                                "category":  "browser-automation",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "browser-automation"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "browser-automation:chrome.exe",
+                                                "tool_name":  "Automated browser (chrome.exe)",
+                                                "category":  "browser-automation",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "browser-automation"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A10-1.json",
+                                         "A10-2.json",
+                                         "A10-3.json"
+                                     ]
+                       }
+}

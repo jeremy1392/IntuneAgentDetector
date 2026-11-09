@@ -1,0 +1,72 @@
+﻿{
+    "id":  "B03",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Behavioural twin",
+    "description":  "Twin of A04: PowerShell script, Microsoft Graph, persistent cmd",
+    "mode":  "admin",
+    "run_id":  "20261109-120224",
+    "started":  "2026-11-09T12:14:30.7479369+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  28852,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  20384,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  2760,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  20188,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "powershell.exe"
+                                            ],
+                                     "D2":  [
+                                                "powershell.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B03-1.json",
+                                         "B03-2.json",
+                                         "B03-3.json"
+                                     ]
+                       }
+}

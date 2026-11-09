@@ -1,0 +1,316 @@
+﻿{
+    "id":  "B05",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "git clone over HTTPS",
+    "mode":  "standard",
+    "run_id":  "20261109-024631",
+    "started":  "2026-11-09T02:59:49.9861105+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  13788,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  12796,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  22248,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  5500,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  8452,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  26376,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  19476,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  21444,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  25184,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  7452,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  10800,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  14932,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  19068,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  9412,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  12168,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  7044,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  27728,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  20044,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  5040,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  24768,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  17280,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  5456,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  13924,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  19312,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  15488,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  15652,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  13708,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  2084,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  20536,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  13308,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  4832,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  27092,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  18620,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  13300,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  28468,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  20584,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  26296,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  4160,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  18016,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  18224,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  3632,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  24512,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  5988,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  4408,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  19368,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  13652,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  9708,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  7732,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  4776,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  5168,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  22284,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  824,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  23872,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  18156,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  10556,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  11456,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  12044,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  28000,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  1796,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  25172,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  20892,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  24040,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  21872,
+                          "name":  "git.exe"
+                      },
+                      {
+                          "pid":  1972,
+                          "name":  "git-remote-https.exe"
+                      },
+                      {
+                          "pid":  27524,
+                          "name":  "git.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B05-1.json",
+                                         "B05-2.json",
+                                         "B05-3.json"
+                                     ]
+                       }
+}

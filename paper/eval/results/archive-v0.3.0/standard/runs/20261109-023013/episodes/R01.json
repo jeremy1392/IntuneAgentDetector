@@ -1,0 +1,72 @@
+﻿{
+    "id":  "R01",
+    "label":  "agent",
+    "scope":  "robustness",
+    "class":  "Undeclared relay",
+    "description":  "Python agent through a relay hard-coded in the script",
+    "mode":  "standard",
+    "run_id":  "20261109-023013",
+    "started":  "2026-11-09T02:39:13.1573205+02:00",
+    "samples":  22,
+    "processes":  [
+                      {
+                          "pid":  28636,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  27820,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  12868,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  13980,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "code.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "R01-1.json",
+                                         "R01-2.json",
+                                         "R01-3.json"
+                                     ]
+                       }
+}

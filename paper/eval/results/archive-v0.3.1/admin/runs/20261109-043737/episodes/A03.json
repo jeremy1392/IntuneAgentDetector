@@ -1,0 +1,144 @@
+﻿{
+    "id":  "A03",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Model provider (dedicated range)",
+    "description":  "Node.js agent, Anthropic API, persistent PowerShell",
+    "mode":  "admin",
+    "run_id":  "20261109-043737",
+    "started":  "2026-11-09T04:38:49.4134786+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  17380,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  29124,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  29052,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  18956,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:node.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by node.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:node.exe",
+                                                "tool_name":  "Probable custom AI agent (node.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:node.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by node.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:node.exe",
+                                                "tool_name":  "Probable custom AI agent (node.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:node.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by node.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:node.exe",
+                                                "tool_name":  "Probable custom AI agent (node.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A03-1.json",
+                                         "A03-2.json",
+                                         "A03-3.json"
+                                     ]
+                       }
+}

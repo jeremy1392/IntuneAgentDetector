@@ -1,0 +1,76 @@
+﻿{
+    "id":  "R03",
+    "label":  "agent",
+    "scope":  "robustness",
+    "class":  "Agent inside WSL 2",
+    "description":  "Python agent running in the Ubuntu WSL 2 distribution",
+    "mode":  "admin",
+    "run_id":  "20261109-123502",
+    "started":  "2026-11-09T12:45:20.1169091+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  472,
+                          "name":  "wslhost.exe"
+                      },
+                      {
+                          "pid":  23776,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  24524,
+                          "name":  "wsl.exe"
+                      },
+                      {
+                          "pid":  27140,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  8932,
+                          "name":  "wsl.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "R03-1.json",
+                                         "R03-2.json",
+                                         "R03-3.json"
+                                     ]
+                       }
+}

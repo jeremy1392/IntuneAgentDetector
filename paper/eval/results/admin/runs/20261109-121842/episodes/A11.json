@@ -1,0 +1,143 @@
+﻿{
+    "id":  "A11",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Renamed runtime",
+    "description":  "Node.js agent run by a copy of node.exe renamed updater.exe",
+    "mode":  "admin",
+    "run_id":  "20261109-121842",
+    "started":  "2026-11-09T12:24:44.1770732+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  15280,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  15888,
+                          "name":  "updater.exe"
+                      },
+                      {
+                          "pid":  13544,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  23960,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+                                                "updater.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api:updater.exe",
+                                                "tool_name":  "Anthropic API used by updater.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:updater.exe",
+                                                "tool_name":  "Probable custom AI agent (updater.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api:updater.exe",
+                                                "tool_name":  "Anthropic API used by updater.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:updater.exe",
+                                                "tool_name":  "Probable custom AI agent (updater.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api:updater.exe",
+                                                "tool_name":  "Anthropic API used by updater.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:updater.exe",
+                                                "tool_name":  "Probable custom AI agent (updater.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A11-1.json",
+                                         "A11-2.json",
+                                         "A11-3.json"
+                                     ]
+                       }
+}

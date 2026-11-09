@@ -1,0 +1,9 @@
+label median p95
+{Traces} 0.0 0.6
+{Environment} 0.5 1.2
+{TCP table} 2.2 4.6
+{Processes} 23.2 27.5
+{Correlation} 27.2 28.3
+{Inventory} 29.0 31.4
+{DNS cache} 30.0 32.2
+{Candidate inspection} 53.8 58.7

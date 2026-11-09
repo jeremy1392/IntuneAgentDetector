@@ -1,0 +1,72 @@
+﻿{
+    "id":  "A06",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Inference platform",
+    "description":  "Python agent, Groq API, persistent cmd",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:24:20.4275298+02:00",
+    "samples":  23,
+    "processes":  [
+                      {
+                          "pid":  18164,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  29488,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  18720,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  28868,
+                          "name":  "python.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "A06-1.json",
+                                         "A06-2.json",
+                                         "A06-3.json"
+                                     ]
+                       }
+}

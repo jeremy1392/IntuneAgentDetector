@@ -1,0 +1,72 @@
+﻿{
+    "id":  "B02",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Behavioural twin",
+    "description":  "Twin of A03: Node.js script, npm registry, persistent PowerShell",
+    "mode":  "admin",
+    "run_id":  "20261109-120224",
+    "started":  "2026-11-09T12:13:54.5834696+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  10660,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  22152,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  17860,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  12436,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B02-1.json",
+                                         "B02-2.json",
+                                         "B02-3.json"
+                                     ]
+                       }
+}

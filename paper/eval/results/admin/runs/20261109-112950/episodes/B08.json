@@ -1,0 +1,108 @@
+﻿{
+    "id":  "B08",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "go build with module download",
+    "mode":  "admin",
+    "run_id":  "20261109-112950",
+    "started":  "2026-11-09T11:44:54.6347053+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  10544,
+                          "name":  "link.exe"
+                      },
+                      {
+                          "pid":  27896,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  12204,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  29112,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  24560,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  24928,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  20116,
+                          "name":  "compile.exe"
+                      },
+                      {
+                          "pid":  21888,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  23908,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  16840,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  17616,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  26012,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  28860,
+                          "name":  "go.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B08-1.json",
+                                         "B08-2.json",
+                                         "B08-3.json"
+                                     ]
+                       }
+}

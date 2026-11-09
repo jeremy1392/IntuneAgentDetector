@@ -1,0 +1,76 @@
+﻿{
+    "id":  "R03",
+    "label":  "agent",
+    "scope":  "robustness",
+    "class":  "Agent inside WSL 2",
+    "description":  "Python agent running in the Ubuntu WSL 2 distribution",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:31:37.7644646+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  7136,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  2320,
+                          "name":  "wsl.exe"
+                      },
+                      {
+                          "pid":  6364,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  464,
+                          "name":  "wsl.exe"
+                      },
+                      {
+                          "pid":  21320,
+                          "name":  "wslhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "R03-1.json",
+                                         "R03-2.json",
+                                         "R03-3.json"
+                                     ]
+                       }
+}

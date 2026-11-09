@@ -1,0 +1,155 @@
+﻿{
+    "id":  "C02",
+    "label":  "component",
+    "scope":  "main",
+    "class":  "MCP server",
+    "description":  "Reference MCP filesystem server alone, no LLM connection",
+    "mode":  "standard",
+    "run_id":  "20261109-132251",
+    "started":  "2026-11-09T13:30:39.1385560+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  17696,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  27860,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  26412,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  3120,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  20048,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  2536,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  6308,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "mcp-server:modelcontextprotocol",
+                                                "tool_name":  "MCP server @modelcontextprotocol (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "mcp-server:mcp-server-filesystem",
+                                                "tool_name":  "MCP server mcp-server-filesystem (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "mcp-server:modelcontextprotocol",
+                                                "tool_name":  "MCP server @modelcontextprotocol (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "mcp-server:mcp-server-filesystem",
+                                                "tool_name":  "MCP server mcp-server-filesystem (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "mcp-server:modelcontextprotocol",
+                                                "tool_name":  "MCP server @modelcontextprotocol (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "mcp-server:mcp-server-filesystem",
+                                                "tool_name":  "MCP server mcp-server-filesystem (host not identified)",
+                                                "category":  "mcp",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "mcp-server"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "C02-1.json",
+                                         "C02-2.json",
+                                         "C02-3.json"
+                                     ]
+                       }
+}

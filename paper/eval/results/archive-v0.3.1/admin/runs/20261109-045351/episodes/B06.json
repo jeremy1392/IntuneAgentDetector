@@ -1,0 +1,122 @@
+﻿{
+    "id":  "B06",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "pip download of a large wheel",
+    "mode":  "admin",
+    "run_id":  "20261109-045351",
+    "started":  "2026-11-09T05:07:49.3637701+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  21496,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  22272,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  16092,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  25476,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  29520,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  22012,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  22932,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  7280,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  27104,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  6472,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  21144,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  3420,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  24544,
+                          "name":  "py.exe"
+                      },
+                      {
+                          "pid":  27056,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  19504,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  17024,
+                          "name":  "py.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "python.exe",
+                                  "code.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B06-1.json",
+                                         "B06-2.json",
+                                         "B06-3.json"
+                                     ]
+                       }
+}

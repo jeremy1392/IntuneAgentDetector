@@ -1,0 +1,100 @@
+﻿{
+    "id":  "B08",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "go build with module download",
+    "mode":  "admin",
+    "run_id":  "20261109-121842",
+    "started":  "2026-11-09T12:33:50.1911428+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  5520,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  8260,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  2768,
+                          "name":  "compile.exe"
+                      },
+                      {
+                          "pid":  7748,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  23268,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  28792,
+                          "name":  "compile.exe"
+                      },
+                      {
+                          "pid":  22916,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  20764,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  18968,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  28064,
+                          "name":  "go.exe"
+                      },
+                      {
+                          "pid":  27488,
+                          "name":  "compile.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B08-1.json",
+                                         "B08-2.json",
+                                         "B08-3.json"
+                                     ]
+                       }
+}

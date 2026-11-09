@@ -1,0 +1,124 @@
+﻿{
+    "id":  "B07",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "dotnet restore and build",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:35:48.6498851+02:00",
+    "samples":  22,
+    "processes":  [
+                      {
+                          "pid":  12516,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23232,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  20012,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  12204,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  22584,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  11976,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  16932,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  29508,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  832,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  22920,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  1792,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  20796,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17108,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23468,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  26460,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  26940,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17392,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B07-1.json",
+                                         "B07-2.json",
+                                         "B07-3.json"
+                                     ]
+                       }
+}

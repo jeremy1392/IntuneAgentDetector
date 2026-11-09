@@ -1,0 +1,120 @@
+﻿{
+    "id":  "B07",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "dotnet restore and build",
+    "mode":  "standard",
+    "run_id":  "20261109-015737",
+    "started":  "2026-11-09T02:12:10.3484367+02:00",
+    "samples":  22,
+    "processes":  [
+                      {
+                          "pid":  10692,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  6324,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  8504,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  3248,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  9312,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  27880,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  3940,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  1236,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  12076,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17920,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  6076,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  12436,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  27716,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  12360,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  2924,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  7252,
+                          "name":  "dotnet.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B07-1.json",
+                                         "B07-2.json",
+                                         "B07-3.json"
+                                     ]
+                       }
+}

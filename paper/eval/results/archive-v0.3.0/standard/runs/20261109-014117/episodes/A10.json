@@ -1,0 +1,154 @@
+﻿{
+    "id":  "A10",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Agent driving a browser",
+    "description":  "Python agent, Anthropic API, headless Chrome with remote debugging, no shell",
+    "mode":  "standard",
+    "run_id":  "20261109-014117",
+    "started":  "2026-11-09T01:46:40.9886438+02:00",
+    "samples":  23,
+    "processes":  [
+                      {
+                          "pid":  24528,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  8948,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  13976,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  3428,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  23148,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  2020,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  17928,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  27300,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  15556,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  1796,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  27576,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  5004,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  17916,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  13564,
+                          "name":  "chrome.exe"
+                      },
+                      {
+                          "pid":  3592,
+                          "name":  "chrome.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "browser-automation"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "browser-automation"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "browser-automation"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A10-1.json",
+                                         "A10-2.json",
+                                         "A10-3.json"
+                                     ]
+                       }
+}

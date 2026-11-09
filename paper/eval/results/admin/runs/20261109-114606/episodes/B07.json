@@ -1,0 +1,120 @@
+﻿{
+    "id":  "B07",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "dotnet restore and build",
+    "mode":  "admin",
+    "run_id":  "20261109-114606",
+    "started":  "2026-11-09T12:00:36.6893469+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  19016,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  6360,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  18124,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24560,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  23708,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  3544,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  26996,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  6812,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  25772,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  29132,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  1528,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  15240,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24572,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  780,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  27160,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23200,
+                          "name":  "dotnet.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B07-1.json",
+                                         "B07-2.json",
+                                         "B07-3.json"
+                                     ]
+                       }
+}

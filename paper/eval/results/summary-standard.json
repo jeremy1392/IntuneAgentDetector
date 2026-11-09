@@ -1,0 +1,1310 @@
+{
+  "mode": "standard",
+  "runs": [
+    {
+      "mode": "standard",
+      "elevated": false,
+      "os": {
+        "caption": "Microsoft Windows 11 Famille",
+        "edition": "Core",
+        "display_version": "26H2",
+        "build": "26300.9711"
+      },
+      "commit": "4bf3af5-dirty",
+      "binary_sha256": "396416552dcaf051a0ddc86d264c54f8b4de072e053aafe3cba4e94d31166e68",
+      "tool_version": "0.3.2",
+      "catalog_version": "2026.11.09",
+      "warmup_s": 8,
+      "window_s": 24,
+      "scans_per_episode": 3,
+      "partial": false,
+      "episodes": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "C01",
+        "C02",
+        "C03",
+        "R01",
+        "R02",
+        "R03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "run_id": "20261109-132251",
+      "started": "2026-11-09T13:22:51.7764729+02:00",
+      "complete": true,
+      "finished": "2026-11-09T13:39:06.2167851+02:00"
+    },
+    {
+      "mode": "standard",
+      "elevated": false,
+      "os": {
+        "caption": "Microsoft Windows 11 Famille",
+        "edition": "Core",
+        "display_version": "26H2",
+        "build": "26300.9711"
+      },
+      "commit": "4bf3af5-dirty",
+      "binary_sha256": "396416552dcaf051a0ddc86d264c54f8b4de072e053aafe3cba4e94d31166e68",
+      "tool_version": "0.3.2",
+      "catalog_version": "2026.11.09",
+      "warmup_s": 8,
+      "window_s": 24,
+      "scans_per_episode": 3,
+      "partial": false,
+      "episodes": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "C01",
+        "C02",
+        "C03",
+        "R01",
+        "R02",
+        "R03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "run_id": "20261109-133906",
+      "started": "2026-11-09T13:39:06.6087130+02:00",
+      "complete": true,
+      "finished": "2026-11-09T13:55:23.9900974+02:00"
+    },
+    {
+      "mode": "standard",
+      "elevated": false,
+      "os": {
+        "caption": "Microsoft Windows 11 Famille",
+        "edition": "Core",
+        "display_version": "26H2",
+        "build": "26300.9711"
+      },
+      "commit": "4bf3af5-dirty",
+      "binary_sha256": "396416552dcaf051a0ddc86d264c54f8b4de072e053aafe3cba4e94d31166e68",
+      "tool_version": "0.3.2",
+      "catalog_version": "2026.11.09",
+      "warmup_s": 8,
+      "window_s": 24,
+      "scans_per_episode": 3,
+      "partial": false,
+      "episodes": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "C01",
+        "C02",
+        "C03",
+        "R01",
+        "R02",
+        "R03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "run_id": "20261109-135523",
+      "started": "2026-11-09T13:55:24.4122921+02:00",
+      "complete": true,
+      "finished": "2026-11-09T14:11:41.5132260+02:00"
+    },
+    {
+      "mode": "standard",
+      "elevated": false,
+      "os": {
+        "caption": "Microsoft Windows 11 Famille",
+        "edition": "Core",
+        "display_version": "26H2",
+        "build": "26300.9711"
+      },
+      "commit": "4bf3af5-dirty",
+      "binary_sha256": "396416552dcaf051a0ddc86d264c54f8b4de072e053aafe3cba4e94d31166e68",
+      "tool_version": "0.3.2",
+      "catalog_version": "2026.11.09",
+      "warmup_s": 8,
+      "window_s": 24,
+      "scans_per_episode": 3,
+      "partial": false,
+      "episodes": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "C01",
+        "C02",
+        "C03",
+        "R01",
+        "R02",
+        "R03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "run_id": "20261109-141141",
+      "started": "2026-11-09T14:11:41.9342012+02:00",
+      "complete": true,
+      "finished": "2026-11-09T14:27:59.0342006+02:00"
+    },
+    {
+      "mode": "standard",
+      "elevated": false,
+      "os": {
+        "caption": "Microsoft Windows 11 Famille",
+        "edition": "Core",
+        "display_version": "26H2",
+        "build": "26300.9711"
+      },
+      "commit": "4bf3af5-dirty",
+      "binary_sha256": "396416552dcaf051a0ddc86d264c54f8b4de072e053aafe3cba4e94d31166e68",
+      "tool_version": "0.3.2",
+      "catalog_version": "2026.11.09",
+      "warmup_s": 8,
+      "window_s": 24,
+      "scans_per_episode": 3,
+      "partial": false,
+      "episodes": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "C01",
+        "C02",
+        "C03",
+        "R01",
+        "R02",
+        "R03",
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09"
+      ],
+      "run_id": "20261109-142759",
+      "started": "2026-11-09T14:27:59.4348682+02:00",
+      "complete": true,
+      "finished": "2026-11-09T14:44:16.0159122+02:00"
+    }
+  ],
+  "episodes": 27,
+  "main_agents": 12,
+  "main_components": 3,
+  "main_benign": 9,
+  "insitu": {
+    "rows": [
+      {
+        "tool_id": "claude-code",
+        "expected": "active",
+        "evidence": "claude.exe running; VS Code extension anthropic.claude-code; global npm package @anthropic-ai/claude-code",
+        "level": "active",
+        "confidence": "high",
+        "name": "Claude Code",
+        "correct": true
+      },
+      {
+        "tool_id": "github-copilot",
+        "expected": "active",
+        "evidence": "copilot-runtime.exe running in VS Code",
+        "level": "active",
+        "confidence": "high",
+        "name": "GitHub Copilot (IDE)",
+        "correct": true
+      },
+      {
+        "tool_id": "openai-codex",
+        "expected": "active",
+        "evidence": "MSIX package OpenAI.Codex installed; codex.exe and ChatGPT.exe running",
+        "level": "active",
+        "confidence": "high",
+        "name": "OpenAI Codex / ChatGPT app",
+        "correct": true
+      },
+      {
+        "tool_id": "claude-desktop",
+        "expected": "installed",
+        "evidence": "MSIX package Claude installed (use within 30 days not independently verifiable)",
+        "level": "recent",
+        "confidence": "high",
+        "name": "Claude Desktop (incl. Cowork)",
+        "correct": true
+      },
+      {
+        "tool_id": "opencode",
+        "expected": "installed",
+        "evidence": "installed program OpenCode 1.18.3",
+        "level": "installed",
+        "confidence": "high",
+        "name": "OpenCode",
+        "correct": true
+      },
+      {
+        "tool_id": "cursor",
+        "expected": "residue",
+        "evidence": "~/.cursor folder present; Cursor not installed",
+        "level": "residue",
+        "confidence": "medium",
+        "name": "Cursor",
+        "correct": true
+      },
+      {
+        "tool_id": "ollama",
+        "expected": "residue",
+        "evidence": "~/.ollama folder present; Ollama not installed",
+        "level": "residue",
+        "confidence": "medium",
+        "name": "Ollama",
+        "correct": true
+      },
+      {
+        "tool_id": "perplexity-comet",
+        "expected": "residue",
+        "evidence": "empty %LOCALAPPDATA%\\Perplexity folder; Comet not installed",
+        "level": "residue",
+        "confidence": "medium",
+        "name": "Perplexity Comet (agentic browser)",
+        "correct": true
+      },
+      {
+        "tool_id": "github-copilot-cli",
+        "expected": "absent",
+        "evidence": "Copilot CLI not installed; ~/.copilot is used by the Copilot runtime of VS Code",
+        "level": "--",
+        "confidence": "--",
+        "name": "github-copilot-cli",
+        "correct": true
+      }
+    ],
+    "correct": 9,
+    "total": 9,
+    "extra": []
+  },
+  "dns_ttl": {
+    "providers": [
+      "openai",
+      "mistral",
+      "openrouter",
+      "groq"
+    ],
+    "per_provider": {
+      "openai": {
+        "ttl_max": 60,
+        "persistent_last_attributed": [
+          55,
+          10,
+          0
+        ],
+        "persistent_connected": 1.0,
+        "persistent_attributed": 5,
+        "persistent_scans": 72,
+        "reconnect_connected": 12,
+        "reconnect_attributed": 8
+      },
+      "mistral": {
+        "ttl_max": 300,
+        "persistent_last_attributed": [
+          295,
+          280,
+          295
+        ],
+        "persistent_connected": 1.0,
+        "persistent_attributed": 59,
+        "persistent_scans": 72,
+        "reconnect_connected": 8,
+        "reconnect_attributed": 8
+      },
+      "openrouter": {
+        "ttl_max": 296,
+        "persistent_last_attributed": [
+          250,
+          280,
+          280
+        ],
+        "persistent_connected": 1.0,
+        "persistent_attributed": 55,
+        "persistent_scans": 72,
+        "reconnect_connected": 4,
+        "reconnect_attributed": 2
+      },
+      "groq": {
+        "ttl_max": 300,
+        "persistent_last_attributed": [
+          130,
+          295,
+          295
+        ],
+        "persistent_connected": 1.0,
+        "persistent_attributed": 49,
+        "persistent_scans": 72,
+        "reconnect_connected": 7,
+        "reconnect_attributed": 7
+      }
+    }
+  },
+  "intermittent": {
+    "scans": 40,
+    "connected": {
+      "count": 18,
+      "ratio": 0.45,
+      "ci": [
+        0.29258835003987993,
+        0.6150932054659868
+      ]
+    },
+    "shell": {
+      "count": 4,
+      "ratio": 0.1,
+      "ci": [
+        0.02792541529421927,
+        0.23663739987609994
+      ]
+    },
+    "llm_api": {
+      "count": 15,
+      "ratio": 0.375,
+      "ci": [
+        0.22726272248182594,
+        0.541985247767389
+      ]
+    },
+    "probable_agent": {
+      "count": 4,
+      "ratio": 0.1,
+      "ci": [
+        0.02792541529421927,
+        0.23663739987609994
+      ]
+    },
+    "actionable": {
+      "count": 15,
+      "ratio": 0.375,
+      "ci": [
+        0.22726272248182594,
+        0.541985247767389
+      ]
+    },
+    "actionable_when_connected": {
+      "count": 15,
+      "of": 18
+    }
+  },
+  "metrics_agents": {
+    "D0": {
+      "tp": 0,
+      "fn": 12,
+      "fp": 0,
+      "tn": 9,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null,
+      "precision_ci": [
+        null,
+        null
+      ],
+      "recall_ci": [
+        0.0,
+        0.26464846939705133
+      ]
+    },
+    "D1": {
+      "tp": 9,
+      "fn": 3,
+      "fp": 4,
+      "tn": 5,
+      "precision": 0.6923076923076923,
+      "recall": 0.75,
+      "f1": 0.7199999999999999,
+      "precision_ci": [
+        0.3857383382492948,
+        0.9090796054279033
+      ],
+      "recall_ci": [
+        0.4281415381218109,
+        0.9451393554720073
+      ]
+    },
+    "D2": {
+      "tp": 10,
+      "fn": 2,
+      "fp": 4,
+      "tn": 5,
+      "precision": 0.7142857142857143,
+      "recall": 0.8333333333333334,
+      "f1": 0.7692307692307692,
+      "precision_ci": [
+        0.41896474281633866,
+        0.9161106816928726
+      ],
+      "recall_ci": [
+        0.5158622513140327,
+        0.9791374745399075
+      ]
+    },
+    "AD": {
+      "tp": 12,
+      "fn": 0,
+      "fp": 0,
+      "tn": 9,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "precision_ci": [
+        0.7353515306029486,
+        1.0
+      ],
+      "recall_ci": [
+        0.7353515306029486,
+        1.0
+      ]
+    }
+  },
+  "metrics_ai_software": {
+    "D0": {
+      "tp": 0,
+      "fn": 15,
+      "fp": 0,
+      "tn": 9,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null,
+      "precision_ci": [
+        null,
+        null
+      ],
+      "recall_ci": [
+        0.0,
+        0.21801936091053403
+      ]
+    },
+    "D1": {
+      "tp": 10,
+      "fn": 5,
+      "fp": 4,
+      "tn": 5,
+      "precision": 0.7142857142857143,
+      "recall": 0.6666666666666666,
+      "f1": 0.689655172413793,
+      "precision_ci": [
+        0.41896474281633866,
+        0.9161106816928726
+      ],
+      "recall_ci": [
+        0.38380373254115396,
+        0.8817588966331193
+      ]
+    },
+    "D2": {
+      "tp": 11,
+      "fn": 4,
+      "fp": 4,
+      "tn": 5,
+      "precision": 0.7333333333333333,
+      "recall": 0.7333333333333333,
+      "f1": 0.7333333333333333,
+      "precision_ci": [
+        0.44899675896302915,
+        0.9221284537089565
+      ],
+      "recall_ci": [
+        0.44899675896302915,
+        0.9221284537089565
+      ]
+    },
+    "AD": {
+      "tp": 15,
+      "fn": 0,
+      "fp": 0,
+      "tn": 9,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "precision_ci": [
+        0.7819806390894659,
+        1.0
+      ],
+      "recall_ci": [
+        0.7819806390894659,
+        1.0
+      ]
+    }
+  },
+  "components_detected": {
+    "D0": 0,
+    "D1": 1,
+    "D2": 1,
+    "AD": 3,
+    "total": 3
+  },
+  "unstable_cells": [
+    "A01/AD",
+    "A12/AD"
+  ],
+  "background_flags": {
+    "D0": [
+      "claude.exe",
+      "codex-computer-use-swift.exe",
+      "codex-windows-sandbox-service.exe",
+      "codex.exe",
+      "copilot-runtime.exe"
+    ],
+    "D1": [],
+    "D2": [
+      "claude.exe",
+      "code.exe",
+      "explorer.exe"
+    ]
+  },
+  "overhead": {
+    "runs": 100,
+    "duration_ms": {
+      "median": 154.0,
+      "p95": 166.0,
+      "max": 175
+    },
+    "wall_ms": {
+      "median": 177.2,
+      "p95": 189.425,
+      "max": 200
+    },
+    "cpu_time_ms": {
+      "median": 406.25,
+      "p95": 531.25,
+      "max": 578.125
+    },
+    "peak_working_set_mb": {
+      "median": 22.30078125,
+      "p95": 22.9138671875,
+      "max": 23.41796875
+    },
+    "processes": {
+      "median": 352.0,
+      "p95": 352.1,
+      "max": 354
+    },
+    "connections": {
+      "median": 62.0,
+      "p95": 62.0,
+      "max": 62
+    },
+    "collectors": {
+      "correlate": {
+        "median": 27.1535,
+        "p95": 28.27
+      },
+      "dns": {
+        "median": 30.038,
+        "p95": 32.20635
+      },
+      "environment": {
+        "median": 0.518,
+        "p95": 1.2198999999999953
+      },
+      "inspect": {
+        "median": 53.7605,
+        "p95": 58.7193
+      },
+      "inventory": {
+        "median": 29.0485,
+        "p95": 31.37685
+      },
+      "network": {
+        "median": 2.2465,
+        "p95": 4.599349999999999
+      },
+      "processes": {
+        "median": 23.213,
+        "p95": 27.52795
+      },
+      "traces": {
+        "median": 0.0,
+        "p95": 0.6381
+      }
+    }
+  },
+  "episodes_detail": [
+    {
+      "id": "A01",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 3
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior"
+      ]
+    },
+    {
+      "id": "A02",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api",
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior",
+        "network"
+      ]
+    },
+    {
+      "id": "A03",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api",
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior",
+        "network"
+      ]
+    },
+    {
+      "id": "A04",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior"
+      ]
+    },
+    {
+      "id": "A05",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior"
+      ]
+    },
+    {
+      "id": "A06",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior"
+      ]
+    },
+    {
+      "id": "A07",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "probable-agent",
+        "relay-candidate"
+      ],
+      "ad_signals": [
+        "base-url",
+        "behavior"
+      ]
+    },
+    {
+      "id": "A08",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": true
+      },
+      "ad_findings": [
+        "local-llm-server",
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior",
+        "listener"
+      ]
+    },
+    {
+      "id": "A09",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api",
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior",
+        "mcp-server",
+        "network"
+      ]
+    },
+    {
+      "id": "A10",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api"
+      ],
+      "ad_signals": [
+        "browser-automation",
+        "network"
+      ]
+    },
+    {
+      "id": "A11",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api",
+        "probable-agent"
+      ],
+      "ad_signals": [
+        "behavior",
+        "network"
+      ]
+    },
+    {
+      "id": "A12",
+      "label": "agent",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 3
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api"
+      ],
+      "ad_signals": [
+        "network"
+      ]
+    },
+    {
+      "id": "B01",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B02",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B03",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B04",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B05",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B06",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B07",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B08",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "B09",
+      "label": "benign",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "C01",
+      "label": "component",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": true
+      },
+      "ad_findings": [
+        "local-llm-runtime"
+      ],
+      "ad_signals": [
+        "module"
+      ]
+    },
+    {
+      "id": "C02",
+      "label": "component",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": true
+      },
+      "ad_findings": [
+        "mcp-server"
+      ],
+      "ad_signals": [
+        "mcp-server"
+      ]
+    },
+    {
+      "id": "C03",
+      "label": "component",
+      "scope": "main",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 5
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": true
+      },
+      "ad_findings": [
+        "llm-api"
+      ],
+      "ad_signals": [
+        "network"
+      ]
+    },
+    {
+      "id": "R01",
+      "label": "agent",
+      "scope": "robustness",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 5,
+        "D2": 5,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": true,
+        "D2": true,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "R02",
+      "label": "agent",
+      "scope": "robustness",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    },
+    {
+      "id": "R03",
+      "label": "agent",
+      "scope": "robustness",
+      "runs": 5,
+      "detections": {
+        "D0": 0,
+        "D1": 0,
+        "D2": 0,
+        "AD": 0
+      },
+      "majority": {
+        "D0": false,
+        "D1": false,
+        "D2": false,
+        "AD": false
+      },
+      "ad_findings": [],
+      "ad_signals": []
+    }
+  ]
+}

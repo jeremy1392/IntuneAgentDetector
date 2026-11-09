@@ -1,0 +1,100 @@
+﻿{
+    "id":  "A12",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Intermittent agent",
+    "description":  "Python agent, Anthropic API, a call every 10 s, connection closed after 5 s, one short shell per call",
+    "mode":  "admin",
+    "run_id":  "20261109-034840",
+    "started":  "2026-11-09T03:55:17.6343205+02:00",
+    "samples":  22,
+    "processes":  [
+                      {
+                          "pid":  3020,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  26440,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  4092,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  12472,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  20580,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  11436,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  20764,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  25624,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  24908,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  4196,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  24360,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "A12-1.json",
+                                         "A12-2.json",
+                                         "A12-3.json"
+                                     ]
+                       }
+}

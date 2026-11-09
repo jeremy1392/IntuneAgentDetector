@@ -1,0 +1,112 @@
+﻿{
+    "id":  "A12",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Intermittent agent",
+    "description":  "Python agent, Anthropic API, a call every 10 s, connection closed after 5 s, one short shell per call",
+    "mode":  "standard",
+    "run_id":  "20261109-135523",
+    "started":  "2026-11-09T14:02:01.3713637+02:00",
+    "samples":  23,
+    "processes":  [
+                      {
+                          "pid":  17016,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  24036,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  2648,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  2940,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  28808,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  28816,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  20676,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  28716,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  25856,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  3656,
+                          "name":  "PING.EXE"
+                      },
+                      {
+                          "pid":  12104,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "explorer.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A12-1.json",
+                                         "A12-2.json",
+                                         "A12-3.json"
+                                     ]
+                       }
+}

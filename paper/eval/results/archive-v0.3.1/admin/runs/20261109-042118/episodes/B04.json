@@ -1,0 +1,180 @@
+﻿{
+    "id":  "B04",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "npm install with install script (cmd)",
+    "mode":  "admin",
+    "run_id":  "20261109-042118",
+    "started":  "2026-11-09T04:34:00.8622969+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  15796,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  13720,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  26252,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  29276,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  3996,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  28820,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  17072,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  24812,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  22584,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  13500,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  3620,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  20172,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  11888,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  18384,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  27636,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  4940,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  16776,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  28612,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  4312,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  3592,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  12936,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  18720,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  26996,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  16224,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  28944,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  27160,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  22264,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  11976,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  18256,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  13536,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  9796,
+                          "name":  "node.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B04-1.json",
+                                         "B04-2.json",
+                                         "B04-3.json"
+                                     ]
+                       }
+}

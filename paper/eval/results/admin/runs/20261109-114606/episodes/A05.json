@@ -1,0 +1,143 @@
+﻿{
+    "id":  "A05",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Aggregator",
+    "description":  "Python agent, OpenRouter, persistent cmd",
+    "mode":  "admin",
+    "run_id":  "20261109-114606",
+    "started":  "2026-11-09T11:48:31.5342729+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  17828,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  22860,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  9116,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  22820,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:openrouter:python.exe",
+                                                "tool_name":  "OpenRouter used by python.exe",
+                                                "category":  "aggregator",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:openrouter:python.exe",
+                                                "tool_name":  "OpenRouter used by python.exe",
+                                                "category":  "aggregator",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:openrouter:python.exe",
+                                                "tool_name":  "OpenRouter used by python.exe",
+                                                "category":  "aggregator",
+                                                "level":  "active",
+                                                "confidence":  "low",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A05-1.json",
+                                         "A05-2.json",
+                                         "A05-3.json"
+                                     ]
+                       }
+}

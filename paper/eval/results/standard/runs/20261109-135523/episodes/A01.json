@@ -1,0 +1,72 @@
+﻿{
+    "id":  "A01",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Model provider (CDN-hosted)",
+    "description":  "Python agent, OpenAI API, persistent cmd",
+    "mode":  "standard",
+    "run_id":  "20261109-135523",
+    "started":  "2026-11-09T13:55:24.4152918+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  10876,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  17196,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  5320,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  5044,
+                          "name":  "cmd.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "A01-1.json",
+                                         "A01-2.json",
+                                         "A01-3.json"
+                                     ]
+                       }
+}

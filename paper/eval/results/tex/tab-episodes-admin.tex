@@ -1,0 +1,36 @@
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{4.4cm} c c c c >{\raggedright\arraybackslash}p{3.0cm}@{}}
+\toprule
+Id & Class & Episode & D0 & D1 & D2 & AD & Agent Detector findings \\
+\midrule
+A01 & Model provider (CDN-hosted) & Python agent, OpenAI API, persistent cmd & \xmark & \cmark & \cmark & \cmark & probable-agent \\
+A02 & Model provider (dedicated range) & Python agent, Anthropic API, persistent cmd & \xmark & \cmark & \cmark & \cmark & llm-api, probable-agent \\
+A03 & Model provider (dedicated range) & Node.js agent, Anthropic API, persistent PowerShell & \xmark & \cmark & \cmark & \cmark & llm-api, probable-agent \\
+A04 & Model provider (CDN-hosted) & PowerShell agent, Mistral API, persistent cmd & \xmark & \cmark & \cmark & \cmark & probable-agent \\
+A05 & Aggregator & Python agent, OpenRouter, persistent cmd & \xmark & \cmark & \cmark & \cmark & probable-agent \\
+A06 & Inference platform & Python agent, Groq API, persistent cmd & \xmark & \cmark & \cmark & \cmark & probable-agent \\
+A07 & Unknown relay (declared) & Python agent through a relay set in OPENAI\_BASE\_URL & \xmark & \cmark & \cmark & \cmark & probable-agent, relay-candidate \\
+A08 & Local LLM & Local LLM-style server on port 11434 and an agent using it & \xmark & \xmark & \xmark & \cmark & local-llm-server, probable-agent \\
+A09 & Agent with MCP server & Python agent, Anthropic API, reference MCP filesystem server & \xmark & \cmark & \cmark & \cmark & llm-api, probable-agent \\
+A10 & Agent driving a browser & Python agent, Anthropic API, headless Chrome with remote debugging, no shell & \xmark & \xmark & \xmark & \cmark & llm-api \\
+A11 & Renamed runtime & Node.js agent run by a copy of node.exe renamed updater.exe & \xmark & \xmark & \cmark & \cmark & llm-api, probable-agent \\
+A12 & Intermittent agent & Python agent, Anthropic API, a call every 10 s, connection closed after 5 s, one short shell per call & \xmark & \cmark & \cmark & \xmark & -- \\
+\midrule
+C01 & Inference runtime & Process loading a module named like an inference runtime (ggml), no network & \xmark & \xmark & \xmark & \cmark & local-llm-runtime \\
+C02 & MCP server & Reference MCP filesystem server alone, no LLM connection & \xmark & \cmark & \cmark & \cmark & mcp-server \\
+C03 & LLM client without tools & Python script polling the Anthropic API, no shell, no tools & \xmark & \xmark & \xmark & \cmark & llm-api \\
+\midrule
+B01 & Behavioural twin & Twin of A02: Python script, PyPI JSON API, persistent cmd & \xmark & \cmark & \cmark & \xmark & -- \\
+B02 & Behavioural twin & Twin of A03: Node.js script, npm registry, persistent PowerShell & \xmark & \cmark & \cmark & \xmark & -- \\
+B03 & Behavioural twin & Twin of A04: PowerShell script, Microsoft Graph, persistent cmd & \xmark & \cmark & \cmark & \xmark & -- \\
+B04 & Developer workload & npm install with install script (cmd) & \xmark & {\scriptsize 4/5} & {\scriptsize 4/5} & \xmark & -- \\
+B05 & Developer workload & git clone over HTTPS & \xmark & \xmark & \xmark & \xmark & -- \\
+B06 & Developer workload & pip download of a large wheel & \xmark & \xmark & \xmark & \xmark & -- \\
+B07 & Developer workload & dotnet restore and build & \xmark & \xmark & \xmark & \xmark & -- \\
+B08 & Developer workload & go build with module download & \xmark & \xmark & \xmark & \xmark & -- \\
+B09 & Inherited base URL & git loop in a PowerShell that inherited OPENAI\_BASE\_URL from the user environment & \xmark & \xmark & \xmark & \xmark & -- \\
+\midrule
+R01 & Undeclared relay & Python agent through a relay hard-coded in the script & \xmark & \cmark & \cmark & \xmark & -- \\
+R02 & Ephemeral agent & Python agent running 5 s, scanned after it exited & \xmark & \xmark & \xmark & \xmark & -- \\
+R03 & Agent inside WSL 2 & Python agent running in the Ubuntu WSL 2 distribution & \xmark & \xmark & \xmark & \xmark & -- \\
+\bottomrule
+\end{tabular}

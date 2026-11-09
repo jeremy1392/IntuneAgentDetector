@@ -1,0 +1,133 @@
+﻿{
+    "id":  "B07",
+    "label":  "benign",
+    "scope":  "main",
+    "class":  "Developer workload",
+    "description":  "dotnet restore and build",
+    "mode":  "admin",
+    "run_id":  "20261109-043737",
+    "started":  "2026-11-09T04:52:03.5521956+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  16648,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23672,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24748,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  14456,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  28816,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23080,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  28776,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  18600,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  13604,
+                          "name":  "powershell.exe"
+                      },
+                      {
+                          "pid":  23628,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24440,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  24176,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  17216,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  13404,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  2300,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  25312,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  12368,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  23904,
+                          "name":  "dotnet.exe"
+                      },
+                      {
+                          "pid":  15540,
+                          "name":  "dotnet.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+                                  "python.exe"
+                              ],
+                       "D2":  [
+                                  "claude.exe",
+                                  "python.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  false,
+                           "any_finding":  false,
+                           "findings":  [
+
+                                        ],
+                           "scans":  [
+                                         "B07-1.json",
+                                         "B07-2.json",
+                                         "B07-3.json"
+                                     ]
+                       }
+}

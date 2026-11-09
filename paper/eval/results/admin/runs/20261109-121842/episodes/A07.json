@@ -1,0 +1,143 @@
+﻿{
+    "id":  "A07",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Unknown relay (declared)",
+    "description":  "Python agent through a relay set in OPENAI_BASE_URL",
+    "mode":  "admin",
+    "run_id":  "20261109-121842",
+    "started":  "2026-11-09T12:22:20.0537687+02:00",
+    "samples":  24,
+    "processes":  [
+                      {
+                          "pid":  17020,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  9504,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  9768,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  2432,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "relay-candidate:httpbin.org",
+                                                "tool_name":  "Unknown LLM relay httpbin.org",
+                                                "category":  "relay",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "base-url"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "relay-candidate:httpbin.org",
+                                                "tool_name":  "Unknown LLM relay httpbin.org",
+                                                "category":  "relay",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "base-url"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "relay-candidate:httpbin.org",
+                                                "tool_name":  "Unknown LLM relay httpbin.org",
+                                                "category":  "relay",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "base-url"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A07-1.json",
+                                         "A07-2.json",
+                                         "A07-3.json"
+                                     ]
+                       }
+}

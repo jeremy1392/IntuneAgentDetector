@@ -1,0 +1,10 @@
+tool_id,expected_level,independent_evidence
+claude-code,active,claude.exe running; VS Code extension anthropic.claude-code; global npm package @anthropic-ai/claude-code
+github-copilot,active,copilot-runtime.exe running in VS Code
+openai-codex,active,MSIX package OpenAI.Codex installed; codex.exe and ChatGPT.exe running
+claude-desktop,installed,MSIX package Claude installed (use within 30 days not independently verifiable)
+opencode,installed,installed program OpenCode 1.18.3
+cursor,residue,~/.cursor folder present; Cursor not installed
+ollama,residue,~/.ollama folder present; Ollama not installed
+perplexity-comet,residue,empty %LOCALAPPDATA%\Perplexity folder; Comet not installed
+github-copilot-cli,absent,Copilot CLI not installed; ~/.copilot is used by the Copilot runtime of VS Code

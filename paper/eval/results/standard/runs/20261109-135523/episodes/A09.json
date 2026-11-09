@@ -1,0 +1,171 @@
+﻿{
+    "id":  "A09",
+    "label":  "agent",
+    "scope":  "main",
+    "class":  "Agent with MCP server",
+    "description":  "Python agent, Anthropic API, reference MCP filesystem server",
+    "mode":  "standard",
+    "run_id":  "20261109-135523",
+    "started":  "2026-11-09T14:00:12.9007026+02:00",
+    "samples":  23,
+    "processes":  [
+                      {
+                          "pid":  29000,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  13392,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  23676,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  24644,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  13912,
+                          "name":  "cmd.exe"
+                      },
+                      {
+                          "pid":  27812,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  21084,
+                          "name":  "conhost.exe"
+                      },
+                      {
+                          "pid":  22560,
+                          "name":  "node.exe"
+                      },
+                      {
+                          "pid":  408,
+                          "name":  "cmd.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  true,
+                     "D2":  true,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+                                                "node.exe",
+                                                "python.exe"
+                                            ],
+                                     "D2":  [
+                                                "node.exe",
+                                                "python.exe"
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior",
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior",
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network",
+                                                              "mcp-server"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "probable-agent:python.exe",
+                                                "tool_name":  "Probable custom AI agent (python.exe)",
+                                                "category":  "custom-agent",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "behavior",
+                                                              "mcp-server"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "A09-1.json",
+                                         "A09-2.json",
+                                         "A09-3.json"
+                                     ]
+                       }
+}

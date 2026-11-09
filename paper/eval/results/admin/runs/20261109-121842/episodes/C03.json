@@ -1,0 +1,99 @@
+﻿{
+    "id":  "C03",
+    "label":  "component",
+    "scope":  "main",
+    "class":  "LLM client without tools",
+    "description":  "Python script polling the Anthropic API, no shell, no tools",
+    "mode":  "admin",
+    "run_id":  "20261109-121842",
+    "started":  "2026-11-09T12:27:10.1799530+02:00",
+    "samples":  25,
+    "processes":  [
+                      {
+                          "pid":  26932,
+                          "name":  "python.exe"
+                      },
+                      {
+                          "pid":  10600,
+                          "name":  "conhost.exe"
+                      }
+                  ],
+    "baseline":  {
+                     "D0":  false,
+                     "D1":  false,
+                     "D2":  false,
+                     "flagged":  {
+                                     "D0":  [
+
+                                            ],
+                                     "D1":  [
+
+                                            ],
+                                     "D2":  [
+
+                                            ]
+                                 }
+                 },
+    "background":  {
+                       "D0":  [
+                                  "codex-windows-sandbox-service.exe",
+                                  "copilot-runtime.exe",
+                                  "codex-computer-use-swift.exe",
+                                  "codex.exe",
+                                  "claude.exe"
+                              ],
+                       "D1":  [
+
+                              ],
+                       "D2":  [
+                                  "claude.exe"
+                              ]
+                   },
+    "agent_detector":  {
+                           "detected":  true,
+                           "any_finding":  true,
+                           "findings":  [
+                                            {
+                                                "scan":  1,
+                                                "tool_id":  "llm-api:anthropic-api:python.exe",
+                                                "tool_name":  "Anthropic API used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  2,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            },
+                                            {
+                                                "scan":  3,
+                                                "tool_id":  "llm-api:anthropic-api-dedicated-range:python.exe",
+                                                "tool_name":  "Anthropic API (dedicated range) used by python.exe",
+                                                "category":  "model-provider",
+                                                "level":  "active",
+                                                "confidence":  "medium",
+                                                "approved":  false,
+                                                "kinds":  [
+                                                              "network"
+                                                          ]
+                                            }
+                                        ],
+                           "scans":  [
+                                         "C03-1.json",
+                                         "C03-2.json",
+                                         "C03-3.json"
+                                     ]
+                       }
+}

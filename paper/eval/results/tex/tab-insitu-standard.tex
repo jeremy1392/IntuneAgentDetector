@@ -1,0 +1,15 @@
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{5.4cm} l l c@{}}
+\toprule
+Tool & Evidence found by the inventory script & Expected & Reported & \\
+\midrule
+Claude Code & claude.exe running; VS Code extension anthropic.claude-code; global npm package @anthropic-ai/claude-code & active & active, high & \cmark \\
+GitHub Copilot (IDE) & copilot-runtime.exe running in VS Code & active & active, high & \cmark \\
+OpenAI Codex / ChatGPT app & MSIX package OpenAI.Codex installed; codex.exe and ChatGPT.exe running & active & active, high & \cmark \\
+Claude Desktop (incl. Cowork) & MSIX package Claude installed (use within 30 days not independently verifiable) & installed & recent, high & \cmark \\
+OpenCode & installed program OpenCode 1.18.3 & installed & installed, high & \cmark \\
+Cursor & \textasciitilde{}/.cursor folder present; Cursor not installed & residue & residue, medium & \cmark \\
+Ollama & \textasciitilde{}/.ollama folder present; Ollama not installed & residue & residue, medium & \cmark \\
+Perplexity Comet (agentic browser) & empty \%LOCALAPPDATA\%\textbackslash{}Perplexity folder; Comet not installed & residue & residue, medium & \cmark \\
+github-copilot-cli & Copilot CLI not installed; \textasciitilde{}/.copilot is used by the Copilot runtime of VS Code & absent & -- & \cmark \\
+\bottomrule
+\end{tabular}
