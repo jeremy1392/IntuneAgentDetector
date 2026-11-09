@@ -24,6 +24,25 @@ Build the detector first, from the repository root:
 .\build.ps1 -Version 0.3.2      # writes dist\detectoragent.exe, used by the bench
 ```
 
+## Quick check
+
+Two checks take minutes, from this folder:
+
+```powershell
+python score.py --check            # any system with Python 3
+.\run-episodes.ps1 -Only A02,B01   # Windows, after building the detector; about 75 s
+```
+
+`score.py --check` re-scores the published runs (`results\standard` and
+`results\admin`) into a temporary folder and compares every value and table
+with those of the paper in `results\tex`. Only the in-situ table is not
+recomputed, because it needs the private report of the workstation.
+
+`run-episodes.ps1 -Only A02,B01` runs an agent and its behavioural twin and
+prints the verdict of the four detectors for each episode: D1 and D2 flag
+both, Agent Detector flags only the agent (A02). `score.py` ignores such
+partial runs.
+
 ## Run
 
 ```powershell

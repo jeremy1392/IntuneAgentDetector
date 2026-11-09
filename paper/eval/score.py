@@ -13,7 +13,11 @@ and writes:
   results/summary-<mode>.json
   results/tex/*.tex                tables and \\newcommand macros used by the paper
 
-Standard library only. Usage: python score.py
+With --check, scores into a temporary folder and compares the result with
+results/tex, so that a reader can verify the tables and values of the paper
+from the published runs alone, without the raw scans that stay private.
+
+Standard library only. Usage: python score.py [--check]
 """
 
 import glob
@@ -21,10 +25,12 @@ import json
 import math
 import os
 import statistics
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RESULTS = os.path.join(HERE, "results")
 TEX = os.path.join(RESULTS, "tex")
+SUMMARIES = RESULTS
 
 DETECTORS = [
     ("D0", "Signature (process name)"),
@@ -301,7 +307,10 @@ def write_finding_excerpt(run_dir, episode="A02"):
     ep = load_json(ep_path)
     pids = {int(p["pid"]) for p in ep["processes"]}
     for scan in ep["agent_detector"]["scans"]:
-        rep = load_json(os.path.join(run_dir, "scans", scan))
+        scan_path = os.path.join(run_dir, "scans", scan)
+        if not os.path.exists(scan_path):
+            return  # raw scans are not published
+        rep = load_json(scan_path)
         for f in rep["findings"]:
             if f["tool_id"].startswith("probable-agent") and any(e.get("pid") in pids for e in f["evidence"]):
                 text = json.dumps(f, indent=2, ensure_ascii=True)
@@ -640,12 +649,50 @@ def main():
                                  "detections": e["counts"], "majority": e["detected"],
                                  "ad_findings": e["ad_labels"], "ad_signals": e["ad_signals"]} for e in eps],
         }
-        with open(os.path.join(RESULTS, "summary-%s.json" % mode), "w", encoding="utf-8") as f:
+        with open(os.path.join(SUMMARIES, "summary-%s.json" % mode), "w", encoding="utf-8") as f:
             json.dump(summary, f, indent=2)
         print("%s: %d episodes, %d run(s), %d unstable cell(s)" % (mode, len(eps), len(runs), len(unstable)))
     with open(os.path.join(TEX, "macros.tex"), "w", encoding="utf-8") as f:
         f.write("\n".join(macros) + "\n")
 
 
+def check():
+    """Re-scores the published runs into a temporary folder and compares."""
+    import re
+    import tempfile
+    global TEX, SUMMARIES
+    published = TEX
+    TEX = SUMMARIES = tempfile.mkdtemp(prefix="score-check-")
+    main()
+
+    def lines(path):
+        with open(path, encoding="utf-8-sig") as f:
+            return f.read().splitlines()
+
+    rx = re.compile(r"\\newcommand\{\\(\w+)\}\{(.*)\}$")
+    pub = dict(m.groups() for m in map(rx.match, lines(os.path.join(published, "macros.tex"))) if m)
+    new = dict(m.groups() for m in map(rx.match, lines(os.path.join(TEX, "macros.tex"))) if m)
+    differ = sorted(k for k in new if pub.get(k) != new[k])
+    files = sorted(n for n in os.listdir(TEX) if n != "macros.tex" and not n.startswith("summary-"))
+    files_differ = [n for n in files if not os.path.exists(os.path.join(published, n))
+                    or lines(os.path.join(published, n)) != lines(os.path.join(TEX, n))]
+    kept = sorted(set(os.listdir(published)) - set(os.listdir(TEX)))
+    print()
+    print("values (macros):  %d recomputed, %d identical to the paper" % (len(new), len(new) - len(differ)))
+    print("tables and data:  %d recomputed, %d identical to the paper" % (len(files), len(files) - len(files_differ)))
+    for k in differ:
+        print("  DIFFERENT value  %s: paper %s, recomputed %s" % (k, pub.get(k, "(absent)"), new[k]))
+    for n in files_differ:
+        print("  DIFFERENT file   %s" % n)
+    not_recomputed = sorted(k for k in pub if k not in new)
+    if not_recomputed or kept:
+        print("not recomputed here (they need the private in-situ report or raw scans, or come")
+        print("from catalogdump and model.py): %s" % ", ".join(kept + not_recomputed))
+    print("recomputed files: %s" % TEX)
+    return 1 if differ or files_differ else 0
+
+
 if __name__ == "__main__":
+    if "--check" in sys.argv[1:]:
+        sys.exit(check())
     main()
